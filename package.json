@@ -1,0 +1,22 @@
+{
+  "name": "baleroom",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.3.1",
+    "next": "9.1.1",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "file-loader": "^4.2.0",
+    "url-loader": "^2.2.0"
+  }
+}
