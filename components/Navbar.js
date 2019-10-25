@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
             <a href="#" className="navbar-brand">
-                <img src="../static/images/baleroom-logo.png" alt="Baleroom Logo" height="18"/>
+                <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="18"/>
             </a>
 
             <button
