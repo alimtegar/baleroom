@@ -22,26 +22,26 @@ const Rooms = () => {
                     </h1>
             </div>
             <div className="position-relative">
-                <div className="rooms-body mx-min-3">
+                <div className="rooms-body">
                     <div className="container h-100">
                         <Slider ref={(c) => slider = c} {...settings}>
                             <div className="h-100 px-3">
-                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded overflow-hidden">
+                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded-2 overflow-hidden">
                                     <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
                                 </div>
                             </div>
                             <div className="h-100 px-3">
-                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded overflow-hidden">
+                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded-2 overflow-hidden">
                                     <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
                                 </div>
                             </div>
                             <div className="h-100 px-3">
-                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded overflow-hidden">
+                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded-2 overflow-hidden">
                                     <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
                                 </div>
                             </div>
                             <div className="h-100 px-3">
-                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded overflow-hidden">
+                                <div className="rooms-items position-relative d-flex justify-content-center align-items-center h-100 rounded-2 overflow-hidden">
                                     <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
                                 </div>
                             </div>

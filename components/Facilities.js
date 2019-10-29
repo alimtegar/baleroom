@@ -13,65 +13,80 @@ const Facilities = () => {
                         <div className="col-lg-3">
                             <div className="py-3">
                                 <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded">
-                                    <div className="circle circle-lg bg-primary text-white border-2 border-white mb-3">
+                                    <div className="circle circle-lg bg-white text-secondary border-2 mb-3 border-white shadow-sm">
                                         <i className="fa fa-wifi fa-lg y-min-1" />
                                     </div>
 
-                                    <h2 className="h6 mb-0">
+                                    <h2 className="h6 mb-3">
                                         Wi-Fi Gratis
                                 </h2>
+                                    <p className="x-small mb-0">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
                             <div className="py-3">
                                 <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded">
-                                    <div className="circle circle-lg bg-primary text-white border-2 border-white mb-3">
+                                    <div className="circle circle-lg bg-white text-secondary border-2 mb-3 border-white shadow-sm">
                                         <i className="fa fa-bed fa-lg y-min-1" />
                                     </div>
 
-                                    <h2 className="h6 mb-0">
+                                    <h2 className="h6 mb-3">
                                         Layanan Kamar
                                 </h2>
+                                    <p className="x-small mb-0">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
                             <div className="py-3">
                                 <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded">
-                                    <div className="circle circle-lg bg-primary text-white border-2 border-white mb-3">
-                                        <i className="fa fa-swimmer fa-lg y-min-1" />
+                                    <div className="circle circle-lg bg-white text-secondary border-2 mb-3 border-white shadow-sm">
+                                        <i className="fa fa-swimming-pool fa-lg y-min-1" />
                                     </div>
 
-                                    <h2 className="h6 mb-0">
+                                    <h2 className="h6 mb-3">
                                         Kolam Renang
-                                </h2>
+                                    </h2>
+                                    <p className="x-small mb-0">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
                             <div className="py-3">
                                 <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded">
-                                    <div className="circle circle-lg bg-primary text-white border-2 border-white mb-3">
+                                    <div className="circle circle-lg bg-white text-secondary border-2 mb-3 border-white shadow-sm">
                                         <i className="fa fa-tv fa-lg y-min-1" />
                                     </div>
 
-                                    <h2 className="h6 mb-0">
+                                    <h2 className="h6 mb-3">
                                         Area Longue
-                                </h2>
+                                    </h2>
+                                    <p className="x-small mb-0">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-3">
                             <div className="py-3">
-                                <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded">
-                                    <div className="circle circle-lg bg-primary text-white border-2 border-white mb-3">
-                                        <i className="fa fa-tv fa-lg y-min-1" />
+                                <div className="facilities-item bg-primary text-white px-4 py-5 text-center rounded-2">
+                                    <div className="circle circle-lg bg-white text-secondary border-2 mb-3 border-white shadow-sm">
+                                        <i className="fa fa-store fa-lg y-min-1" />
                                     </div>
 
-                                    <h2 className="h6 mb-0">
-                                        Area Longue
-                                </h2>
+                                    <h2 className="h6 mb-3">
+                                        Minimarket
+                                    </h2>
+                                    <p className="x-small mb-0">
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                         </div>

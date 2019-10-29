@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <nav id="navbar" className="navbar navbar-expand-lg bg-white shadow-sm">
             <div className="container">
-                <a href="#" className="navbar-brand position-absolute bg-dark px-5 py-4 rounded-bottom shadow-sm">
+                <a href="#" className="navbar-brand position-absolute bg-dark px-5 py-4 rounded-bottom-2 shadow-sm">
                     <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="18" className="y-1"/>
                 </a>
 

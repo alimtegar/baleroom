@@ -22,10 +22,14 @@ html, body {
 
 /* --- Border --- */
 .border-2 { border: 2px solid; }
+.border-right-2 { border-right: 2px solid; }
 
 /* --- Rounded --- */
 .rounded-right-0 { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 .rounded-left-0 { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+.rounded-2 { border-radius: 0.5rem; }
+.rounded-bottom-2 { border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
 
 /* --- Shapes --- */
 .circle {
