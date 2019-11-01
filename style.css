@@ -57,7 +57,7 @@ html, body {
     width: 45px;
     height: 45px;
     padding: 0 !important;
-    border-radius: 1000px;
+    border-radius: 1000px !important;
 }
 
 .circle-lg {
@@ -75,7 +75,7 @@ html, body {
 }
 
 /* --- Shadow --- */
-.shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33); }
 
 /* --- Positions --- */
 .top-0 { top: 0; }
@@ -145,10 +145,13 @@ html, body {
     padding: 0.75rem 1.5rem;
     border: 0;
     border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33);
 }
 
-.btn-primary { background: #3fc3ff !important; }
+.btn-primary { background-color: #3fc3ff !important; }
+.btn-light { background-color: #fff !important; color: rgba(0, 0, 0, 0.33); }
+
+.btn-light:hover { color: #CB0303; }
 
 /* ------ Navbar ------ */
 #navbar .navbar-brand {
@@ -190,7 +193,7 @@ html, body {
 /* --- Facilities --- */
 
 /* --- Rooms --- */
-#rooms .rooms-body {
+#rooms .rooms-body .rooms-item .item-img {
     height: 240px;
     overflow: hidden;
 }
@@ -221,12 +224,13 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    font-size: 16px;
     color: rgba(0, 0, 0, 0.33);
     width: 45px;
     height: 45px;
     margin: 0.5rem;
     border-radius: 1000px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33);
 }
 
 /* ------ Responsive ------ */

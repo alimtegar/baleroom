@@ -4,7 +4,7 @@ const AboutUs = () => {
             <div className="container">
                 <div className="about-us-header text-center mb-0">
                     <h1 className="h5 font-weight-bold mb-3">
-                        <i className="fa fa-hotel text-secondary mr-2"/> Baleroom
+                        <i className="fa fa-home text-secondary mr-2"/>Tentang Baleroom
                     </h1>
                     <div className="w-75 m-auto">
                         <p className="small text-muted mb-5">
