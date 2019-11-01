@@ -6,6 +6,7 @@ import Slider from '../components/Slider';
 import AboutUs from '../components/AboutUs';
 import Facilities from '../components/Facilities';
 import Rooms from '../components/Rooms';
+import Location from '../components/Location';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -23,6 +24,10 @@ const Home = () => {
                 <AboutUs />
                 <Facilities />
                 <Rooms />
+                {/* <Location /> */}
+                <section>
+                <img src="https://d21oiz1y3fvw6j.cloudfront.net/wp-content/themes/homehound/dist/img/dummy-map.jpg" alt="" className="w-100"/>
+                </section>
             </main>
 
             <Footer />

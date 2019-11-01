@@ -7,12 +7,14 @@ const Location = (props) => {
     };
 
     return (
-        <Map
-            google={props.google}
-            zoom={8}
-            style={mapStyles}
-            initialCenter={{ lat: 47.444, lng: -122.176 }}
-        />
+        <section id="location" className="position-relative">
+            <Map
+                google={props.google}
+                zoom={8}
+                style={mapStyles}
+                initialCenter={{ lat: 47.444, lng: -122.176 }}
+            />
+        </section>
     );
 };
 

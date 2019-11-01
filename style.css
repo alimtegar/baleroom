@@ -12,6 +12,7 @@ html, body {
 /* --- Typography --- */
 .x-small { font-size: 13px; }
 .small { font-size: 14px; }
+.medium { font-size: 16px !important; }
 
 /* --- Colors --- */
 .bg-dark { background: #333 !important; }
@@ -22,14 +23,31 @@ html, body {
 
 /* --- Border --- */
 .border-2 { border: 2px solid; }
+
 .border-right-2 { border-right: 2px solid; }
+.border-bottom-2 { border-bottom: 2px solid; }
 
 /* --- Rounded --- */
-.rounded-right-0 { border-top-right-radius: 0; border-bottom-right-radius: 0; }
-.rounded-left-0 { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.rounded-left-0 { border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
+.rounded-right-0 { border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important; }
 
 .rounded-2 { border-radius: 0.5rem; }
+.rounded-left-2 { border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem; }
+.rounded-right-2 { border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
+
 .rounded-bottom-2 { border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; }
+
+/* --- Fit --- */
+.fit-width {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.fit-height {
+	height: 100% !important;
+	width: auto !important;
+}
+
 
 /* --- Shapes --- */
 .circle {
@@ -81,6 +99,9 @@ html, body {
 .y-50 { transform: translateY(-50%); }
 .y-min-50 { transform: translateY(50%); }
 
+/* Axis Z */
+.z-1 { z-index: 1; }
+
 /* --- Spaces --- */
 .m-min-1 { margin: -0.25rem; }
 .my-min-1 { margin-top: -0.25rem; margin-bottom: -0.25rem; }
@@ -120,9 +141,11 @@ html, body {
 
 /* ------ Form ------ */
 .btn {
-    /* font-weight: bold; */
+    font-weight: bold;
     padding: 0.75rem 1.5rem;
     border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary { background: #3fc3ff !important; }
@@ -134,7 +157,7 @@ html, body {
 
 #navbar .navbar-nav .nav-item .nav-link {
     color: rgba(0, 0, 0, 0.33);
-    font-size: 14px;
+    /* font-size: 14px; */
     font-weight: bold;
     padding: 0.75rem 1rem;
     border-radius: 2px;
@@ -164,9 +187,11 @@ html, body {
     height: 100%;
 }
 
+/* --- Facilities --- */
+
 /* --- Rooms --- */
 #rooms .rooms-body {
-    height: 270px;
+    height: 240px;
     overflow: hidden;
 }
 
@@ -176,4 +201,57 @@ html, body {
 #rooms .rooms-body .slick-slider .slick-list .slick-track .slick-slide,
 #rooms .rooms-body .slick-slider .slick-list .slick-track .slick-slide > div {
     height: 100%;
+}
+
+/* --- Location --- */
+#location { height: 240px; }
+
+/* --- Footer --- */
+#footer .footer-info .nav .nav-item {
+    padding: 0.25rem 0.5rem;
+}
+
+#footer .footer-menu .nav .nav-item .nav-link {
+    color: rgba(0, 0, 0, 0.33);
+    padding: 0.25rem 0.5rem;
+}
+
+#footer .footer-social-media .nav .nav-item .nav-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.33);
+    width: 45px;
+    height: 45px;
+    margin: 0.5rem;
+    border-radius: 1000px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* ------ Responsive ------ */
+@media only screen and (min-width: 1080px) {
+	/* ------ Redefined and Custom Utilities ------ */
+	/* --- Fit --- */
+	.fit-lg-width {
+		width: 100% !important;
+		height: auto !important;
+	}
+
+	.fit-lg-height {
+		height: 100% !important;
+		width: auto !important;
+	}
+}
+
+
+@media only screen and (max-width: 1080px) {
+    #navbar .navbar-brand { 
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+     }
+
+    /* --- Slider --- */
+    #slider { height: 240px; }
 }
