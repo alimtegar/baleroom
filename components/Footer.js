@@ -1,52 +1,65 @@
 const Footer = () => {
+    const nav = [
+        {
+            id: 1,
+            title: 'About Us',
+            link: '#'
+        },
+        {
+            id: 2,
+            title: 'Privacy Policy',
+            link: '#'
+        },
+        {
+            id: 3,
+            title: 'Contact Us',
+            link: '#'
+        },
+    ];
+    const socialMedia = [
+        {
+            id: 1,
+            brand: 'facebook',
+            icon: 'facebook-f',
+            link: '#',
+        },
+        {
+            id: 2,
+            brand: 'twitter',
+            icon: 'twitter',
+            link: '#',
+        },
+    ];
+
     return (
-        <footer id="footer">
-            {/* Footer Panel */}
-            <div className="footer-panel py-5">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        {/* Footer Social Media */}
-                        <div className="col-lg-3">
-                            <div className="footer-social-media text-center">
-                                <h2 className="h5 font-weight-bold mb-4">
-                                    <i className="fa fa-at text-secondary mr-2 y-min-1"/>Ikuti Kami
-                                </h2>
-                                <ul className="nav justify-content-center m-min-2">
-                                    <li className="nav-item">
-                                        <a href="#" className="whatsapp nav-link">
-                                            <i className="fab fa-whatsapp fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="facebook nav-link">
-                                            <i className="fab fa-facebook fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="instagram nav-link">
-                                            <i className="fab fa-instagram fa-lg" />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="#" className="twitter nav-link">
-                                            <i className="fab fa-twitter fa-lg" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        <footer id="footer" className="bg-dark">
+            <div className="container">
+                <div className="footer-panel d-flex align-items-center py-3">
+                    <ul className="footer-nav nav mr-auto">
+                        {nav.map((navItem) => (
+                            <li className="nav-item" key={navItem.id}>
+                                <a href={navItem.link} className="nav-link">
+                                    {navItem.title}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    <ul className="footer-social-media nav m-min-2">
+                        {socialMedia.map((socialMediaItem) => (
+                            <li className="nav-item" key={socialMediaItem.id}>
+                                <a href={socialMediaItem.link} className={`nav-link ${socialMediaItem.brand}`}>
+                                    <i className={`fab fa-${socialMediaItem.icon}`}/>
+                                </a>
+                            </li>
+                        ))}
+                        
+                    </ul>
                 </div>
-            </div>
-            {/* Footer Copyright */}
-            <div className="footer-copyright bg-primary text-white x-small text-center py-2">
-                <span className="mx-2">
-                    Copyright by <strong>Baleroom</strong> 2019
-                </span>
-                |
-                <span className="mx-2">
-                    All Right Reserved
-                </span>
+                <div className="footer-copyright text-white x-small text-center py-3">
+                    <p className="x-small mb-0">
+                        &copy; Copyright Baleroom 2019. All Right Reserved
+                    </p>
+                </div>
             </div>
         </footer>
     );

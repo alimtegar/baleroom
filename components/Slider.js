@@ -10,20 +10,35 @@ const MySlider = () => {
         infinite: true,
     };
 
+    const _slider = [
+        {
+            id: 1,
+            title: 'Slider Item 1',
+            img: 'baleroom-background.jpg',
+        },
+        {
+            id: 2,
+            title: 'Slider Item 1',
+            img: 'baleroom-background.jpg',
+        },
+    ];
+
     return (
         <div id="slider">
             <Slider ref={(c) => slider = c} {...settings}>
-                <div className="d-flex justify-content-center align-items-center h-100">
-                    <img src="/static/images/baleroom-background.jpg" className="position-absolute fit-height fit-lg-width" />
-                </div>
+                {_slider.map((sliderItem) => (
+                    <div className="position-relative d-flex justify-content-center align-items-center h-100" key={sliderItem.id}>
+                        <img src="/static/images/baleroom-background.jpg" className="position-absolute fit-width" />
+                    </div>
+                ))}
             </Slider>
 
-            <div className="position-absolute top-50 left-0 y-min-50 d-flex w-100">
-                <button className="btn btn-primary square rounded-right-2 rounded-left-0" onClick={() => slider.slickPrev()}>
-                    <i className="fa fa-chevron-left x-min-1" />
+            <div className="position-absolute top-50 left-0 y-min-50 d-flex w-100 px-4">
+                <button className="btn btn-primary square rounded-right-2" onClick={() => slider.slickPrev()}>
+                    <i className="fa fa-chevron-left x-min-1-y-1" />
                 </button>
-                <button className="btn btn-primary square ml-auto rounded-left-2 rounded-right-0" onClick={() => slider.slickNext()}>
-                    <i className="fa fa-chevron-right x-1" />
+                <button className="btn btn-primary square ml-auto rounded-left-2" onClick={() => slider.slickNext()}>
+                    <i className="fa fa-chevron-right xy-1" />
                 </button>
             </div>
         </div>

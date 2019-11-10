@@ -2,29 +2,28 @@ import React from 'react';
 import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
-import Slider from '../components/Slider';
-import AboutUs from '../components/AboutUs';
+import Breadcrumb from '../components/Breadcrumb';
 import Facilities from '../components/Facilities';
-import Rooms from '../components/Rooms';
-import Location from '../components/Location';
 import Footer from '../components/Footer';
 
-const Home = () => {
+const MyFacilities = () => {
+    const pageTitle = 'Facilities';
+
     return (
         <div>
-            <Head />
+            <Head title={`Baleroom | ${pageTitle}`} />
 
             <div className="sticky-top">
                 <SubNavbar />
                 <Navbar />
             </div>
 
+            {/* <Breadcrumb 
+                pageTitle={pageTitle}
+            /> */}
+
             <main id="main">
-                <Slider />
-                <AboutUs />
                 <Facilities />
-                <Rooms />
-                <Location />
             </main>
 
             <Footer />
@@ -32,4 +31,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default MyFacilities;

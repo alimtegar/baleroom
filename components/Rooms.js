@@ -1,127 +1,80 @@
-import Slider from 'react-slick';
-
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 const Rooms = () => {
-    let slider;
-    const settings = {
-        dots: false,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            }
-        ],
-    };
+    const rooms = [
+        {
+            id: 1,
+            title: 'Studio Room',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            img: 'baleroom-background.jpg',
+        },
+        {
+            id: 2,
+            title: '2 Bed Room',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            img: 'baleroom-background.jpg',
+        },
+        {
+            id: 3,
+            title: 'Executive Room',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            img: 'baleroom-background.jpg',
+        },
+    ];
 
     return (
         <section id="rooms" className="text-center py-5">
             <div className="rooms-header mb-5">
-                <h1 className="h5 font-weight-bold mb-2">
-                    <i className="fa fa-bed text-secondary mr-2 y-min-1" />Kamar
+                <h1 className="h2 mb-3">
+                    Our Rooms
                 </h1>
-                <p className="small text-muted">
+                <hr className="divider border-dark mb-3" />
+                <p className="text-muted small mb-0">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
             </div>
-            <div className="position-relative">
-                <div className="rooms-body">
-                    <div className="container h-100">
-                        <Slider ref={(c) => slider = c} {...settings}>
-                            <div className="h-100 px-0 px-lg-3 py-1">
-                                <div className="rooms-item rounded-2 shadow-sm overflow-hidden">
-                                    <div class="item-img position-relative">
-                                        <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
-                                    </div>
-                                    <div className="item-content position-relative bg-primary text-white text-left py-3 px-4">
-                                        <h2 className="h6 font-weight-bold mb-2">
-                                            Kamar Eksekutif
-                                        </h2>
-                                        <p className="small mb-0">
-                                            Lorem ipsum dolor sit amet.
-                                        </p>
-                                        <button className="btn btn-light position-absolute top-0 right-0 y-50 circle mr-4">
-                                            <i className="fa fa-arrow-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 px-0 px-lg-3 py-1">
-                                <div className="rooms-item rounded-2 shadow-sm overflow-hidden">
-                                    <div class="item-img position-relative">
-                                        <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
-                                    </div>
-                                    <div className="item-content position-relative bg-primary text-white text-left py-3 px-4">
-                                        <h2 className="h6 font-weight-bold mb-2">
-                                            Kamar Eksekutif
-                                        </h2>
-                                        <p className="small mb-0">
-                                            Lorem ipsum dolor sit amet.
-                                        </p>
-                                        <button className="btn btn-light position-absolute top-0 right-0 y-50 circle mr-4">
-                                            <i className="fa fa-arrow-right" />
-                                        </button>
+
+            <div className="rooms-body text-white">
+                <div className="container-fluid p-2 overflow-hidden">
+                    <div className="row m-min-3">
+                        {rooms.map((room, key) => {
+                            // const col = key < 2 ? 6 : 4;
+                            // const fit = key < 2 ? 'width' : 'height';
+
+                            const col = 4;
+                            const fit = 'height';
+
+                            return (
+                                <div className={`col-lg-${col} p-2`} key={room.id}>
+                                    <div className="rooms-item bg-mask-dark">
+                                        <div className="item-img position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden">
+                                            <img src={`/static/images/${room.img}`} alt={room.title} className={`position-absolute z-min-1 fit-${fit}`} />
+                                        </div>
+                                        <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
+                                            <span>
+                                                <h2 className="h4 mb-3">
+                                                    {room.title}
+                                                </h2>
+                                                <hr className="divider border-white" />
+                                                <div className="item-subcontent w-75 mt-3 mx-auto">
+                                                    <p className="small mb-0">
+                                                        {room.description}
+                                                    </p>
+                                                    <button className="btn btn-primary mt-4">
+                                                        MORE INFO
+                                            </button>
+                                                </div>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="h-100 px-0 px-lg-3 py-1">
-                                <div className="rooms-item rounded-2 shadow-sm overflow-hidden">
-                                    <div class="item-img position-relative">
-                                        <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
-                                    </div>
-                                    <div className="item-content position-relative bg-primary text-white text-left py-3 px-4">
-                                        <h2 className="h6 font-weight-bold mb-2">
-                                            Kamar Eksekutif
-                                        </h2>
-                                        <p className="small mb-0">
-                                            Lorem ipsum dolor sit amet.
-                                        </p>
-                                        <button className="btn btn-light position-absolute top-0 right-0 y-50 circle mr-4">
-                                            <i className="fa fa-arrow-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="h-100 px-0 px-lg-3 py-1">
-                                <div className="rooms-item rounded-2 shadow-sm overflow-hidden">
-                                    <div class="item-img position-relative">
-                                        <img src="/static/images/baleroom-background.jpg" className="position-absolute h-100" />
-                                    </div>
-                                    <div className="item-content position-relative bg-primary text-white text-left py-3 px-4">
-                                        <h2 className="h6 font-weight-bold mb-2">
-                                            Kamar Eksekutif
-                                        </h2>
-                                        <p className="small mb-0">
-                                            Lorem ipsum dolor sit amet.
-                                        </p>
-                                        <button className="btn btn-light position-absolute top-0 right-0 y-50 circle mr-4">
-                                            <i className="fa fa-arrow-right" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Slider>
-                    </div>
-                    <div className="position-absolute top-50 left-0 y-50 d-flex w-100">
-                        <button className="btn btn-primary square rounded-right-2 rounded-left-0" onClick={() => slider.slickPrev()}>
-                            <i className="fa fa-chevron-left x-min-1" />
-                        </button>
-                        <button className="btn btn-primary square ml-auto rounded-left-2 rounded-right-0" onClick={() => slider.slickNext()}>
-                            <i className="fa fa-chevron-right x-1" />
-                        </button>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
+
             <div className="rooms-footer mt-5">
-                <button className="btn btn-primary shadow-sm">
-                    Lihat Semua<i className="fa fa-arrow-right ml-2" />
+                <button className="btn btn-outline-dark">
+                    VIEW ALL ROOMS
                 </button>
             </div>
         </section>
