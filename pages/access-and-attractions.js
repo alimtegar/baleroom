@@ -23,7 +23,7 @@ const AccessAndAttractions = () => {
             /> */}
 
             <main id="main">
-                <div className="rooms-header text-center my-5">
+                <div className="rooms-header text-center my-5 px-3">
                     <h1 className="h2 mb-3">
                         Location
                     </h1>

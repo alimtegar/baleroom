@@ -34,8 +34,8 @@ const Footer = () => {
     return (
         <footer id="footer" className="bg-dark">
             <div className="container">
-                <div className="footer-panel d-flex align-items-center py-3">
-                    <ul className="footer-nav nav mr-auto">
+                <div className="footer-panel d-flex align-items-start align-items-lg-center py-3">
+                    <ul className="footer-nav nav flex-column flex-lg-row mr-auto ml-min-3 ml-lg-0">
                         {nav.map((navItem) => (
                             <li className="nav-item" key={navItem.id}>
                                 <a href={navItem.link} className="nav-link">
@@ -44,7 +44,7 @@ const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="footer-social-media nav m-min-2">
+                    <ul className="footer-social-media nav flex-column flex-lg-row m-min-1">
                         {socialMedia.map((socialMediaItem) => (
                             <li className="nav-item" key={socialMediaItem.id}>
                                 <a href={socialMediaItem.link} className={`nav-link ${socialMediaItem.brand}`}>
@@ -52,7 +52,6 @@ const Footer = () => {
                                 </a>
                             </li>
                         ))}
-                        
                     </ul>
                 </div>
                 <div className="footer-copyright text-white x-small text-center py-3">

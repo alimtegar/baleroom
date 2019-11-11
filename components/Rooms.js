@@ -1,3 +1,5 @@
+import Link from './Link';
+
 const Rooms = () => {
     const rooms = [
         {
@@ -22,7 +24,7 @@ const Rooms = () => {
 
     return (
         <section id="rooms" className="text-center py-5">
-            <div className="rooms-header mb-5">
+            <div className="rooms-header mb-5 px-3">
                 <h1 className="h2 mb-3">
                     Our Rooms
                 </h1>
@@ -73,9 +75,11 @@ const Rooms = () => {
             </div>
 
             <div className="rooms-footer mt-5">
-                <button className="btn btn-outline-dark">
-                    VIEW ALL ROOMS
-                </button>
+                <Link href="/rooms">
+                    <a role="button" className="btn btn-outline-dark">
+                        VIEW ALL ROOMS
+                    </a>
+                </Link>
             </div>
         </section>
     );

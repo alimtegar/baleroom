@@ -25,24 +25,32 @@ const Navbar = () => {
     ];
 
     return (
-        <nav id="navbar" className="navbar navbar-expand-lg bg-white shadow-sm">
+        <nav id="navbar" className="navbar navbar-expand-lg bg-white shadow-sm pb-0 pb-lg-2">
             <div className="container">
-                <a href="#" className="navbar-brand position-absolute top-0 bg-dark mr-0 px-5 py-4 shadow-sm">
-                    <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="18" className="y-1"/>
-                </a>
+                <Link href="/">
+                    <a className="navbar-brand position-absolute top-0 d-flex justify-content-center align-items-center bg-dark mr-0 px-5 py-4 shadow-sm">
+                        <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="18" className="y-1" />
+                    </a>
+                </Link>
 
-                <ul className="navbar-nav ml-0 ml-lg-auto">
-                    {nav.map((navItem) => (
-                        <li className="nav-item" key={navItem.id}>
-                            <Link href={navItem.link} activeClassName="active">
-                                <a className="nav-link">
-                                    {navItem.title}
-                                </a>
-                            </Link>
-                        </li>
-                    ))}
-                    
-                </ul>
+                {/* <button className="navbar-toggler btn btn-primary mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i className="fa fa-bars mr-2" />
+                    MENU
+                </button> */}
+
+                {/* <div className="collapse navbar-collapse" id="navbar-supported-content"> */}
+                    <ul className="navbar-nav flex-row ml-0 ml-lg-auto">
+                        {nav.map((navItem) => (
+                            <li className="nav-item" key={navItem.id}>
+                                <Link href={navItem.link} activeClassName="active">
+                                    <a className="nav-link">
+                                        {navItem.title}
+                                    </a>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                {/* </div> */}
             </div>
         </nav>
     );

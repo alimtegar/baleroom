@@ -14,7 +14,7 @@ const SubNavbar = () => {
                     </div>
                     <div className="navbar-text px-3 py-0">
                         <i className="fa fa-phone mr-2" />
-                        0274-1234-5678
+                        (021) xxxx-xxxx
                     </div>
                 </div>
             </div>

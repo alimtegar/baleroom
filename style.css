@@ -87,6 +87,9 @@ body {
 
 
 /* ------ Custom and Redefined Utilities ------ */
+.row { margin-left: -1rem; margin-right: -1rem; }
+.container { padding-left: 1rem; padding-right: 1rem; }
+
 /* --- Slick Slider --- */
 .slick-slider .slick-arrow { display: none !important; }
 
@@ -400,6 +403,10 @@ body {
 }
 
 /* ------ Navbar ------ */
+#navbar .navbar-brand {
+    height: 80px;
+}
+
 #navbar .navbar-nav .nav-item .nav-link {
     position: relative;
     color: rgba(0, 0, 0, 0.33);
@@ -408,6 +415,7 @@ body {
     font-weight: bold;
     padding: 1rem;
     border-radius: 2px;
+    white-space: nowrap;
 }
 
 #navbar .navbar-nav .nav-item .nav-link:before {
@@ -534,13 +542,33 @@ body {
 }
 
 @media only screen and (max-width: 1080px) {
+    /* ------ Navbar ------ */
+    #navbar {
+        padding-top: 5rem;
+    }
+
     #navbar .navbar-brand {
         top: 0;
         left: 50%;
+        width: calc(100% - 2rem);
         transform: translateX(-50%);
     }
+
+    #navbar .navbar-nav .nav-item .nav-link:before {
+        bottom: 0;
+    }
+
+    #navbar .navbar-nav {
+        overflow-x: scroll;
+    }
+
     /* --- Slider --- */
     #slider {
         height: 240px;
+    }
+
+    /* ------ Facilities ------ */
+    #facilities .facilities-body {
+        background-size: auto 100%;
     }
 }

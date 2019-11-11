@@ -25,7 +25,7 @@ MyHead.propTypes = {
 };
 
 MyHead.defaultProps = {
-    title: '',
+    title: 'Baleroom',
     description: '',
     keywords: '',
 };
