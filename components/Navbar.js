@@ -9,8 +9,8 @@ const Navbar = () => {
         },
         {
             id: 2,
-            title: 'Facilities',
-            link: '/facilities',
+            title: 'Amenities',
+            link: '/amenitites',
         },
         {
             id: 3,
@@ -29,7 +29,7 @@ const Navbar = () => {
             <div className="container">
                 <Link href="/">
                     <a className="navbar-brand position-absolute top-0 d-flex justify-content-center align-items-center bg-dark mr-0 px-5 py-4 shadow-sm">
-                        <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="18" className="y-1" />
+                        <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="16" className="y-1" />
                     </a>
                 </Link>
 

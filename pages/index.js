@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
 import Slider from '../components/Slider';
 import AboutUs from '../components/AboutUs';
-import Facilities from '../components/Facilities';
+import Amenities from '../components/Amenities';
 import Rooms from '../components/Rooms';
 import Location from '../components/Location';
 import Footer from '../components/Footer';
@@ -22,7 +22,7 @@ const Home = () => {
             <main id="main">
                 <Slider />
                 <AboutUs />
-                <Facilities />
+                <Amenities />
                 <Rooms />
                 <Location />
             </main>

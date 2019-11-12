@@ -33,7 +33,7 @@ const MySlider = () => {
                 ))}
             </Slider>
 
-            <div className="position-absolute top-50 left-0 y-min-50 d-none d-lg-flex w-100 px-4">
+            <div className="slider-arrow position-absolute top-50 left-0 y-min-50 d-none d-lg-flex w-100 px-4">
                 <button className="btn btn-primary square rounded-right-2" onClick={() => slider.slickPrev()}>
                     <i className="fa fa-chevron-left x-min-1-y-1" />
                 </button>

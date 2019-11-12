@@ -3,10 +3,10 @@ import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
 import Breadcrumb from '../components/Breadcrumb';
-import Facilities from '../components/Facilities';
+import Facilities from '../components/Amenities';
 import Footer from '../components/Footer';
 
-const MyFacilities = () => {
+const Amenities = () => {
     const pageTitle = 'Facilities';
     const facilities = [
         {
@@ -15,11 +15,10 @@ const MyFacilities = () => {
             title: 'General',
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
             subFacilities: [
-                'Air Conditioner',
-                'Outdoor pool',
                 'Free Wifi',
                 'Room Service',
                 'Non-smoking Rooms',
+                'Outdoor pool',
                 'Convenience Store',
                 'Elevator',
                 'Free Shuttle Bus to Summarecon Mall Bekasi',
@@ -36,39 +35,17 @@ const MyFacilities = () => {
 	            'Mall',
 	            'Mosque',
 	            'Hospital ',
-	            'Food Culinary (night)',
+	            'Food Culinary',
 	            'Toll Enterance Access',
 
             ],
         },
-        {
-            id: 2,
-            icon: 'map-signs',
-            title: 'Popular Facilities',
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
-            subFacilities: [
-                'Outdoor pool',
-                'Free Wifi',
-                '24 hrs front desk',
-                'Room Service',
-            ],
-        },
-        {
-            id: 1,
-            icon: 'swimming-pool',
-            title: 'Outdoor Pool',
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
-            subFacilities: [
-                'Swimming pool',
-                'Pool with view',
-                'Waterslide'
-            ],
-        },
+        
         
         {
             id: 3,
             icon: 'parking',
-            title: '24 Hrs Front Desk',
+            title: 'Parking',
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
             subFacilities: [
                 'Private parking IDR 30000 a day',
@@ -81,6 +58,17 @@ const MyFacilities = () => {
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
             subFacilities: [
                 'Pets are not allowed'
+            ],
+        },
+        {
+            id: 1,
+            icon: 'swimming-pool',
+            title: 'Outdoor Pool',
+            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
+            subFacilities: [
+                'Swimming pool',
+                'Pool with view',
+                'Waterslide'
             ],
         },
     ];
@@ -101,10 +89,7 @@ const MyFacilities = () => {
                             <h1 className="h2 mb-3">
                                 Our Facilities
                             </h1>
-                            <hr className="divider border-dark mb-3" />
-                            <p className="text-muted small mb-0">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
+                            <hr className="divider border-dark" />
                         </div>
                         <div className="row m-min-2">
                             {facilities.map((facility) => (
@@ -120,19 +105,17 @@ const MyFacilities = () => {
                                                 <h2 className="h5 mb-1">
                                                     {facility.title}
                                                 </h2>
-                                                <p className="x-small text-muted mb-0">
-                                                    {facility.description}
-                                                </p>
                                             </div>
                                         </div>
-                                        <ul className="nav flex-column text-muted">
+                                        <ul className="nav flex-column">
                                             {facility.subFacilities.map((subFacility, key) => (
-                                                <li className={`nav-item py-3 px-2 ${key + 1 < facility.subFacilities.length ? 'border-bottom' : ''}`}>
+                                                <li className={`nav-item py-2 px-1 ${key + 1 < facility.subFacilities.length ? 'border-bottom' : ''}`}>
                                                     <div className="d-table">
-                                                        <dic className="d-table-cell small pr-3">
+                                                        {/* <dic className="d-table-cell small pr-3">
                                                             {key + 1}
-                                                        </dic>
-                                                        <h3 className="d-table-cell small mb-0">
+                                                        </dic> */}
+                                                        <i className="fa fa-caret-right fa-sm mr-2" />
+                                                        <h3 className="d-table-cell small font-weight-bold mb-0">
                                                             
                                                             {subFacility}
                                                         </h3>
@@ -156,4 +139,4 @@ const MyFacilities = () => {
     );
 };
 
-export default MyFacilities;
+export default Amenities;

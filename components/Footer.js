@@ -32,9 +32,9 @@ const Footer = () => {
     ];
 
     return (
-        <footer id="footer" className="bg-dark">
+        <footer id="footer" className="bg-dark py-3">
             <div className="container">
-                <div className="footer-panel d-flex align-items-start align-items-lg-center py-3">
+                <div className="footer-panel d-flex align-items-start align-items-lg-center py-2">
                     <ul className="footer-nav nav flex-column flex-lg-row mr-auto ml-min-3 ml-lg-0">
                         {nav.map((navItem) => (
                             <li className="nav-item" key={navItem.id}>

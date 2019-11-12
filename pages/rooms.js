@@ -48,15 +48,12 @@ const MyRooms = () => {
                         <h1 className="h2 mb-3">
                             Our Rooms
                         </h1>
-                        <hr className="divider border-dark mb-3" />
-                        <p className="text-muted small mb-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>
+                        <hr className="divider border-dark" />
                     </div>
 
                     <div className="rooms-body text-white">
-                        <div className="container-fluid p-2 overflow-hidden">
-                            <div className="row m-min-3">
+                        <div className="container-fluid overflow-hidden">
+                            <div className="row m-min-2">
                                 {rooms.map((room, key) => {
                                     // const col = key < 2 ? 6 : 4;
                                     // const fit = key < 2 ? 'width' : 'height';
@@ -72,17 +69,14 @@ const MyRooms = () => {
                                                 </div>
                                                 <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
                                                     <span>
-                                                        <h2 className="h4 mb-3">
+                                                        <h2 className="h5 mb-3">
                                                             {room.title}
                                                         </h2>
                                                         <hr className="divider border-white" />
-                                                        <div className="item-subcontent w-75 mt-3 mx-auto">
-                                                            <p className="small mb-0">
-                                                                {room.description}
-                                                            </p>
-                                                            <button className="btn btn-primary mt-4">
+                                                        <div className="item-subcontent mt-3 mx-auto">
+                                                            <button className="btn btn-primary">
                                                                 MORE INFO
-                                                          </button>
+                                                    </button>
                                                         </div>
                                                     </span>
                                                 </div>

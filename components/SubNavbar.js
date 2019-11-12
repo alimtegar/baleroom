@@ -10,11 +10,11 @@ const SubNavbar = () => {
                     </div> 
                     <div className="navbar-text px-3 py-0">
                         <i className="fa fa-envelope mr-2" />
-                        mail@baleroom.com
+                        info@baleroom.com
                     </div>
                     <div className="navbar-text px-3 py-0">
                         <i className="fa fa-phone mr-2" />
-                        (021) xxxx-xxxx
+                        0812-5050-550
                     </div>
                 </div>
             </div>

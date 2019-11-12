@@ -28,11 +28,24 @@ const AccessAndAttractions = () => {
                         Location
                     </h1>
                     <hr className="divider border-dark mb-3" />
-                    <p className="text-muted small mb-0">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
                 </div>
+
                 <Location />
+
+                <section className="small text-muted mb-min-3 py-5">
+                    <div className="container">
+                        <p>
+                            Apartment kami dikelilingi beberapa Mall besar seperti Giant Mega Bekasi, MM, Grand Metropolitan Mall, Bekasi Cyber Park, Revo Town, Summarecon dan Trans Snow world.
+                        </p>
+                        <p>
+                            Lokasi strategis sangat dekat dengan akses transportasi Stasiun Bekasi, LRT, Pintu Tol Bekasi Barat dan Timur.
+                        </p>
+                        <p>
+                            Apartemen kami juga dekat dengan beberapa masjid, minimarket, restoran, dan kuliner makanan saat malam hari.
+                        </p>
+                    </div>
+
+                </section>
             </main>
 
             <Footer />
