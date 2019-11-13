@@ -44,14 +44,13 @@ const Amenities = () => {
                             <div className="col-lg-3 p-2" key={facility.id}>
                                 <div className="facilities-item border-effect px-3 py-6 text-center">
                                     <span>
-                                        <div className="item-icon circle circle-lg bg-primary text-white mb-4 shadow-sm">
+                                        <div className="item-icon circle circle-lg bg-primary text-white mb-3 shadow-sm">
                                             <i className={`fa fa-${facility.icon} fa-lg y-min-1`} />
                                         </div>
 
-                                        <h2 className="h5 mb-3">
+                                        <h2 className="h6 mb-0">
                                             {facility.title}
                                         </h2>
-                                        <div className="divider"/>
                                     </span>
                                 </div>
                             </div>

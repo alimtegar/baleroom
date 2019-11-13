@@ -7,6 +7,7 @@ const Location = () => {
             frameBorder="0" 
             style={{ border: 0, }} 
             allowFullScreen
+            title="Baleroom Location"
             className="mb-min-2"
         />
     );

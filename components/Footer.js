@@ -19,13 +19,13 @@ const Footer = () => {
     const socialMedia = [
         {
             id: 1,
-            brand: 'facebook',
+            title: 'Facebook',
             icon: 'facebook-f',
             link: '#',
         },
         {
             id: 2,
-            brand: 'twitter',
+            title: 'Twitter',
             icon: 'twitter',
             link: '#',
         },
@@ -47,7 +47,7 @@ const Footer = () => {
                     <ul className="footer-social-media nav flex-column flex-lg-row m-min-1">
                         {socialMedia.map((socialMediaItem) => (
                             <li className="nav-item" key={socialMediaItem.id}>
-                                <a href={socialMediaItem.link} className={`nav-link ${socialMediaItem.brand}`}>
+                                <a href={socialMediaItem.link} className={`nav-link ${socialMediaItem.title.toLowerCase()}`} aria-label={socialMedia.title}>
                                     <i className={`fab fa-${socialMediaItem.icon}`}/>
                                 </a>
                             </li>

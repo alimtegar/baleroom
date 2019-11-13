@@ -113,6 +113,7 @@ body {
 
 /* --- Colors --- */
 /* Background */
+a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .bg-dark { background: #212529 !important; }
 .bg-primary { background: #3fc3ff !important; }
 
@@ -173,7 +174,7 @@ body {
 }
 
 /* --- Shadow --- */
-.shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.33); }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16) !important; }
 
 /* --- Positions --- */
 .top-0 { top: 0; }
@@ -406,7 +407,12 @@ body {
 
 /* ------ Navbar ------ */
 #navbar .navbar-brand {
-    height: 80px;
+    padding: 2rem 3rem;
+    transition: 0.25s;
+}
+
+#navbar .navbar-brand:hover {
+    padding-top: 2.5rem;
 }
 
 #navbar .navbar-nav .nav-item .nav-link {

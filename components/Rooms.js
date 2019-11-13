@@ -1,24 +1,25 @@
 import Link from './Link';
+import PropTypes from 'prop-types';
 
-const Rooms = () => {
+const Rooms = ({ showFooter }) => {
     const rooms = [
         {
             id: 1,
             title: 'Studio Room',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            img: 'baleroom-background.jpg',
+            description: 'Simply Comfort',
+            img: 'baleroom-background-sm.jpg',
         },
         {
             id: 2,
             title: '2 Bed Room',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            img: 'baleroom-background.jpg',
+            description: 'Family Space',
+            img: 'baleroom-background-sm.jpg',
         },
         {
             id: 3,
             title: 'Executive Room',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            img: 'baleroom-background.jpg',
+            description: 'Luxuriously Wide',
+            img: 'baleroom-background-sm.jpg',
         },
     ];
 
@@ -49,15 +50,12 @@ const Rooms = () => {
                                         </div>
                                         <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
                                             <span>
-                                                <h2 className="h5 mb-3">
+                                                <h2 className="h3 mb-0">
                                                     {room.title}
                                                 </h2>
-                                                <hr className="divider border-white" />
-                                                <div className="item-subcontent mt-3 mx-auto">
-                                                    <button className="btn btn-primary">
-                                                        MORE INFO
-                                                    </button>
-                                                </div>
+                                                <p className="h6 font-weight-bold">
+                                                    {room.description}
+                                                </p>
                                             </span>
                                         </div>
                                     </div>
@@ -68,15 +66,25 @@ const Rooms = () => {
                 </div>
             </div>
 
-            <div className="rooms-footer mt-5">
-                <Link href="/rooms">
-                    <a role="button" className="btn btn-outline-dark">
-                        VIEW ALL ROOMS
-                    </a>
-                </Link>
-            </div>
+            {showFooter ? (
+                <div className="rooms-footer mt-5">
+                    <Link href="/rooms">
+                        <a role="button" className="btn btn-outline-dark">
+                            VIEW ALL ROOMS
+                        </a>
+                    </Link>
+                </div>
+            ) : null}
         </section>
     );
+};
+
+Rooms.propTypes = {
+    showFooter: PropTypes.bool.isRequired,
+};
+
+Rooms.defaultProps = {
+    showFooter: true,
 };
 
 export default Rooms;

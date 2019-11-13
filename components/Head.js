@@ -26,8 +26,8 @@ MyHead.propTypes = {
 
 MyHead.defaultProps = {
     title: 'Baleroom',
-    description: '',
-    keywords: '',
+    description: 'Beleroom Hotel Apartement',
+    keywords: 'baleroom,hotel,apartemen',
 };
 
 export default MyHead;

@@ -28,8 +28,8 @@ const Navbar = () => {
         <nav id="navbar" className="navbar navbar-expand-lg bg-white shadow-sm pb-0 pb-lg-2">
             <div className="container">
                 <Link href="/">
-                    <a className="navbar-brand position-absolute top-0 d-flex justify-content-center align-items-center bg-dark mr-0 px-5 py-4 shadow-sm">
-                        <img src="/static/images/baleroom-logo.png" alt="Baleroom Logo" height="16" className="y-1" />
+                    <a className="navbar-brand position-absolute top-0 d-flex justify-content-center align-items-center bg-dark mr-0 shadow-sm">
+                        <img src="/static/images/baleroom-logo-sm.png" alt="Baleroom Logo" height="16" className="y-1" />
                     </a>
                 </Link>
 
