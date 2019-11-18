@@ -374,10 +374,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     border-radius: 0;
 }
 
-.btn-primary {
-    background-color: #3fc3ff !important;
-    border-color: #3fc3ff !important;
-}
+.btn-primary { background-color: #3fc3ff !important; border-color: #3fc3ff !important; }
+.btn-primary:hover { background-color: #35a3d6 !important; border-color: #35a3d6 !important; }
 
 /* ------- Breadcrumb ------ */
 #breadcrumb {

@@ -56,6 +56,13 @@ const Rooms = ({ showFooter }) => {
                                                 <p className="h6 font-weight-bold">
                                                     {room.description}
                                                 </p>
+                                                
+                                                <div className="item-subcontent">
+                                                    
+                                                    <button className="btn btn-primary mt-3 shadow-sm">
+                                                        MORE INFO <i className="fa fa-chevron-right ml-1"/>
+                                                    </button>
+                                                </div>
                                             </span>
                                         </div>
                                     </div>
