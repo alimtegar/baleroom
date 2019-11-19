@@ -550,6 +550,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     justify-content: center;
     align-items: center;
     color: #ffffff;
+    font-weight: bold;
     width: 36px;
     height: 36px;
     padding: 0;

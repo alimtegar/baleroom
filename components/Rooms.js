@@ -53,7 +53,7 @@ const Rooms = ({ showFooter }) => {
                                                 <h2 className="h3 mb-0">
                                                     {room.title}
                                                 </h2>
-                                                <p className="h6 font-weight-bold">
+                                                <p className="h6 mb-0">
                                                     {room.description}
                                                 </p>
                                                 
