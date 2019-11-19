@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 class NextNProgress extends Component {
     static defaultProps = {
-        color: '#29D',
+        // color: '#29D',
+        // height: 2,
         startPosition: 0.3,
         stopDelayMs: 200,
-        height: 2,
     };
 
     timer = null;
@@ -39,7 +39,7 @@ class NextNProgress extends Component {
     }
 
     render() {
-        const { color, height } = this.props;
+        // const { color, height } = this.props;
 
         return (
             <style jsx global>
@@ -48,13 +48,13 @@ class NextNProgress extends Component {
                       pointer-events: none;
                     }
                     #nprogress .bar {
-                      background: ${color};
+                      background: 3fc3ff;
                       position: fixed;
                       z-index: 10000;
                       top: 0;
                       left: 0;
                       width: 100%;
-                      height: ${height}px;
+                      height: 2px;
                     }
                     #nprogress .peg {
                       display: block;
@@ -62,7 +62,7 @@ class NextNProgress extends Component {
                       right: 0px;
                       width: 100px;
                       height: 100%;
-                      box-shadow: 0 0 10px ${color}, 0 0 5px ${color};
+                      box-shadow: 0 0 10px 3fc3ff, 0 0 5px 3fc3ff;
                       opacity: 1;
                       -webkit-transform: rotate(3deg) translate(0px, -4px);
                       -ms-transform: rotate(3deg) translate(0px, -4px);
@@ -80,8 +80,8 @@ class NextNProgress extends Component {
                       height: 18px;
                       box-sizing: border-box;
                       border: solid 2px transparent;
-                      border-top-color: ${color};
-                      border-left-color: ${color};
+                      border-top-color: 3fc3ff;
+                      border-left-color: 3fc3ff;
                       border-radius: 50%;
                       -webkit-animation: nprogresss-spinner 400ms linear infinite;
                       animation: nprogress-spinner 400ms linear infinite;

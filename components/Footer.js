@@ -32,7 +32,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer id="footer" className="bg-dark py-3">
+        <footer id="footer" className="bg-dark">
             <div className="container">
                 <div className="footer-panel d-flex align-items-start align-items-lg-center py-2">
                     <ul className="footer-nav nav flex-column flex-lg-row mr-auto ml-min-3 ml-lg-0">
