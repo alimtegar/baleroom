@@ -29,6 +29,12 @@ const Footer = () => {
             icon: 'twitter',
             link: '#',
         },
+        {
+            id: 3,
+            title: 'Instagram',
+            icon: 'instagram',
+            link: '#',
+        },
     ];
 
     return (
