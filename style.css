@@ -124,6 +124,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .mask-dark { box-shadow: inset 0 0 0 1000px rgba(51, 51, 51, 0.83); }
 
 /* Text */
+.text-primary { color: #3fc3ff !important; }
 .text-secondary { color: #CB0303 !important; }
 
 /* --- Border --- */
