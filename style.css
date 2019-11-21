@@ -90,6 +90,40 @@ body {
 .row { margin-left: -1rem; margin-right: -1rem; }
 .container { padding-left: 1rem; padding-right: 1rem; }
 
+/* --- Skeleton --- */
+.skeleton {
+    
+    background-repeat: no-repeat;
+    background-size: 12.5% 100%; 
+    display: inline-flex;
+    position: relative; 
+    border-radius: 2px;
+
+    /* animation-duration: 3s;
+    animation-fill-mode: forwards; 
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear; */
+}
+
+.skeleton.skeleton-light {
+    background: #eeeeee;
+}
+
+.skeleton.skeleton-dark {
+    background: rgba(255, 255, 255, 0.066);
+}
+
+/* @keyframes placeholderShimmer {
+    0% {
+      background-position: 0 0;
+    }
+    
+    100% {
+      background-position: 100% 0; 
+    }
+  } */
+
 /* --- Slick Slider --- */
 .slick-slider .slick-arrow { display: none !important; }
 
@@ -161,8 +195,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 }
 
 .circle-lg {
-    width: 60px;
-    height: 60px;
+    width: 60px !important;
+    height: 60px !important;
 }
 
 .square {
@@ -198,6 +232,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 
 .y-min-1 { transform: translateY(1px);}
 .y-min-2 { transform: translateY(2px);}
+.y-min-3 { transform: translateY(3px);}
+.y-min-4 { transform: translateY(4px);}
 .y-min-50 { transform: translateY(50%);}
 
 /* Axis Z */
@@ -224,6 +260,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .pr-0-5 { padding-right: 0.125rem; }
 
 .py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+
+.mt-1px { margin-top: 1px; }
 
 .m-min-0-5 { margin: -0.125rem; }
 .my-min-0-5 { margin-top: -0.125rem; margin-bottom: -0.125rem; }
@@ -476,8 +514,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 }
 
 
-/* --- Facilities --- */
-#facilities .facilities-body { 
+/* --- Amenities --- */
+#amenities .amenities-body { 
     background-image: url('/static/images/baleroom-background.jpg'); 
     background-position: center;
     background-size: 100%;
@@ -551,7 +589,6 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-weight: bold;
     width: 36px;
     height: 36px;
     padding: 0;
@@ -602,11 +639,11 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 
     /* --- Slider --- */
     #slider {
-        height: 240px;
+        height: 250px;
     }
 
     /* ------ Facilities ------ */
-    #facilities .facilities-body {
+    #amenities .amenities-body {
         background-size: auto 100%;
     }
 }
