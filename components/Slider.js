@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import Skeleton from './Skeleton';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-/* Helpers */
-import { fixUrl } from '../helpers';
-
-const MySlider = () => {
-    const [sliderImages, setSliderImages] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const adminUrl = process.env.ADMIN_URL ? fixUrl(process.env.ADMIN_URL) : 'https://example.com';
-
+const MySlider = ({ adminUrl, sliderImages }) => {
     let slider;
     const settings = {
         dots: false,
@@ -25,23 +17,10 @@ const MySlider = () => {
         pauseOnHover: true,
     };
 
-    useEffect(() => {
-        fetch(adminUrl + '/sliderimages')
-            .then((res) => res.json())
-            .then((data) => {
-                setSliderImages(data);
-                setIsLoading(false);
-            });
-    }, []);
-
     return (
         <div id="slider">
             <Slider ref={(c) => slider = c} {...settings}>
-                {isLoading ? (
-                    <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden">
-                        <Skeleton className="rounded-0" width={1440} height={640} />
-                    </div>
-                ) : sliderImages.map((sliderImage) => (
+                {sliderImages.map((sliderImage) => (
                     <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden" key={sliderImage.id}>
                         <img src={adminUrl + sliderImage.image.url} className="position-absolute fit-height fit-lg-width" alt={sliderImage.title} />
                     </div>
@@ -60,6 +39,11 @@ const MySlider = () => {
             ) : null}
         </div>
     );
+};
+
+MySlider.propTypes = {
+    adminUrl: PropTypes.string.isRequired,
+    sliderImages: PropTypes.array.isRequired,
 };
 
 export default MySlider;
