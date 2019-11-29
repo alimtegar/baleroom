@@ -18,8 +18,8 @@ const Room = ({ adminUrl, room }) => {
                 <div className="container">
                     <div className="position-relative bg-white mt-min-4 p-5 border-bottom-2 shadow-sm">
                         <div className="page-header mb-5 px-3">
-                            <h2 className="h6 font-weight-bold mb-2 pb-0-5">
-                                {room && room.title}
+                            <h2 className="h6 mb-2 pb-0-5">
+                                {room && room.description}
                             </h2>
                             <h1 className="h4 mb-3">
                                 {room && room.title}
@@ -38,7 +38,7 @@ const Room = ({ adminUrl, room }) => {
                         <div className="mb-5 pb-4">
                             <div className="row">
                                 <div className="col-lg-4">
-                                    <AmenitiesItem icon="user-friends" title="2" description="Tamu Maksimal" />
+                                    <AmenitiesItem icon="users" title="2" description="Tamu Maksimal" />
                                 </div>
                                 <div className="col-lg-4">
                                     <AmenitiesItem icon="bed" title="1 Super King" description="Tipe Tempat Tidur" />
@@ -50,8 +50,6 @@ const Room = ({ adminUrl, room }) => {
                         </div>
 
                         <div className="page-amenities text-left">
-                            <h3 className="h6 font-weight-bold mb-3">Amenities</h3>
-
                             <div className="small text-muted">
                                 <div className="row">
                                     <div className="col-lg-4">

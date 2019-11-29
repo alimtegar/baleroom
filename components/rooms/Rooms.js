@@ -25,7 +25,7 @@ const Rooms = ({ adminUrl, rooms, showFooter }) => {
                                         </div>
                                         <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
                                             <span>
-                                                <h3 className="h6 mb-1">
+                                                <h3 className="h6 mb-2 pb-0-25">
                                                     {room.description}
                                                 </h3>
                                                 <h2 className="h4 mb-3">
