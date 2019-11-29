@@ -12,30 +12,31 @@ const Rooms = ({ adminUrl, rooms, showFooter }) => {
             </div>
             <div className="rooms-body text-white">
                 <div className="container-fluid px-0 overflow-hidden">
-                    <div className="row m-min-2">
+                    <div className="row m-min-0-25">
                         {rooms.map((room) => {
                             const col = 4;
                             const fit = 'height';
 
                             return (
-                                <div className={`col-lg-${col} p-2`} key={room.id}>
+                                <div className={`col-lg-${col} p-0-25`} key={room.id}>
                                     <div className="rooms-item bg-mask-dark">
                                         <div className="item-img position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden">
                                             <img src={adminUrl + room.image.url} alt={room.title} className={`position-absolute z-min-1 fit-${fit}`} />
                                         </div>
                                         <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
                                             <span>
-                                                <h2 className="h3 mb-0">
+                                                <h3 className="h6 mb-1">
+                                                    {room.description}
+                                                </h3>
+                                                <h2 className="h4 mb-3">
                                                     {room.title}
                                                 </h2>
-                                                <p className="h6 mb-0">
-                                                    {room.description}
-                                                </p>
+                                                <div className="divider border-white"></div>
 
                                                 <div className="item-subcontent">
                                                     <Link href="/room/id" as={'/rooms/' + room.id}>
-                                                        <a className="btn btn-primary mt-3 shadow-sm">
-                                                            MORE INFO <i className="fa fa-chevron-right ml-1" />
+                                                        <a className="btn btn-outline-light mt-4 shadow-sm">
+                                                            MORE INFO
                                                         </a>
                                                     </Link>
                                                 </div>

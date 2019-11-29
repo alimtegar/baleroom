@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
 import Slider from '../components/Slider';
 import AboutUs from '../components/AboutUs';
-import Amenities from '../components/Amenities';
+import Amenities from '../components/amenities/Amenities';
 import Rooms from '../components/rooms/Rooms';
 import Location from '../components/Location';
 import Footer from '../components/Footer';

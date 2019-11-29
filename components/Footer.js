@@ -28,7 +28,10 @@ const Footer = ({ company, nav, socialMedia }) => {
                 </div>
                 <div className="footer-copyright text-white x-small text-center py-3">
                     <p className="x-small mb-0">
-                        &copy; {company.title} 2019. All Right Reserved
+                        &copy; {company.title} 2019. All Right Reserved 
+                        <span className="text-muted mx-3">|</span>
+                        
+                         Developed by Alterweb
                     </p>
                 </div>
             </div>

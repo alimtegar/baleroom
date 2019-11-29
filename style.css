@@ -135,7 +135,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     height: 3px;
-    width: 50px;
+    width: 40px;
     border-top-width: 2px;
     border-top-style: solid;
 }
@@ -144,6 +144,10 @@ body {
 .x-small { font-size: 13px; }
 .small { font-size: 14px; }
 .medium { font-size: 16px !important; }
+
+.font-style-italic {
+    font-style: italic;
+}
 
 /* --- Colors --- */
 /* Background */
@@ -211,7 +215,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 }
 
 /* --- Shadow --- */
-.shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16) !important; }
+.shadow-sm { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16) !important; }
 
 /* --- Positions --- */
 .top-0 { top: 0; }
@@ -253,6 +257,14 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .xy-min-50 { transform: translate(-50%, -50%); }
 
 /* --- Spaces --- */
+.p-0-25 { padding: 1px; }
+.py-0-25 { padding-top: 1px; padding-bottom: 1px; }
+.px-0-25 { padding-left: 1px; padding-right: 1px; }
+.pt-0-25 { padding-top: 1px; }
+.pb-0-25 { padding-bottom: 1px; }
+.pl-0-25 { padding-left: 1px; }
+.pr-0-25 { padding-right: 1px; }
+
 .p-0-5 { padding: 0.125rem; }
 .py-0-5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
 .px-0-5 { padding-left: 0.125rem; padding-right: 0.125rem; }
@@ -264,6 +276,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
 
 .mt-1px { margin-top: 1px; }
+
+.m-min-0-25 { margin: -1px; }
 
 .m-min-0-5 { margin: -0.125rem; }
 .my-min-0-5 { margin-top: -0.125rem; margin-bottom: -0.125rem; }
@@ -494,15 +508,16 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 
 
 /* ------ Slider ------ */
-#slider {
-    height: calc(100vh - 80px);
+/* #slider {
+    height: ;
     overflow: hidden;
-}
+} */
 
 #slider .slick-slider,
 #slider .slick-slider .slick-list,
 #slider .slick-slider .slick-list .slick-track,
-#slider .slick-slider .slick-list .slick-track .slick-slide,
+#slider .slick-slider .slick-
+list .slick-track .slick-slide,
 #slider .slick-slider .slick-list .slick-track .slick-slide>div {
     height: 100%;
 }
@@ -523,6 +538,14 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     background-size: 100%;
 }
 
+.amenities-item,
+.amenities-item .circle {
+    transition: 0.25s;
+}
+
+.amenities-item:hover {
+    margin-top: 1rem !important;
+}
 
 /* --- Rooms --- */
 #rooms .rooms-body .rooms-item .item-content {
@@ -549,6 +572,11 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 
 #rooms .rooms-body .rooms-item:hover .item-content .item-subcontent {
     display: block;
+}
+
+#rooms .rooms-body .rooms-item:hover .item-content {
+    background: rgba(0, 0, 0, 0.33);
+    transition-delay: 0.25s;
 }
 
 #rooms .rooms-body .rooms-item {
@@ -604,7 +632,20 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 #footer .footer-social-media .nav-item .nav-link.whatsapp:hover { background: #25d366; border-color: #25d366; }
 
 /* --- Page --- */
-#page .page-image { height: 360px; }
+#page blockquote {
+    padding: 1.5rem;
+    border-left: 2px solid #212529;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
+}
+
+#page ul li {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+#page ul li:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+}
 
 /* ------ Responsive ------ */
 @media only screen and (min-width: 1080px) {
