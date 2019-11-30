@@ -5,18 +5,29 @@ import Markdown from 'markdown-to-jsx';
 import Slider from '../Slider';
 import AmenitiesItem from '../amenities/AmenitiesItem';
 
-const Room = ({ adminUrl, room }) => {
-    const sliderImages = [
-        room
-    ];
+const Room = ({ room }) => {
+    let sliderImages = [];
+
+    const roomAmenities = room.amenities ? room.amenities.split('\n') : [];
+    const roomAmenitiesInACol = 12;
+    const roomAmenitiesColLength = Math.ceil(roomAmenities.length / roomAmenitiesInACol);
+
+
+    room.image.map((roomImage, key) => {
+        sliderImages.push({
+            id: key,
+            image: roomImage,
+            title: room.title,
+        });
+    });
 
     return (
         <section id="page" className="text-center py-5">
-            <Slider height={360} adminUrl={adminUrl} sliderImages={sliderImages} className="mt-min-5" />
+            <Slider height={360} sliderImages={sliderImages} className="mt-min-5" />
 
             <div className="page-body">
                 <div className="container">
-                    <div className="position-relative bg-white mt-min-4 p-5 border-bottom-2 shadow-sm">
+                    <div className="position-relative bg-white mt-min-4 px-3 px-lg-5 py-5 border-bottom-2 shadow-sm">
                         <div className="page-header mb-5 px-3">
                             <h2 className="h6 mb-2 pb-0-5">
                                 {room && room.description}
@@ -27,7 +38,7 @@ const Room = ({ adminUrl, room }) => {
                             <div className="divider" />
                         </div>
 
-                        <div className="page-content text-left mb-5">
+                        <div className="page-content text-left">
                             <div className="small text-justify text-muted">
                                 <Markdown>
                                     {room.content}
@@ -35,98 +46,56 @@ const Room = ({ adminUrl, room }) => {
                             </div>
                         </div>
 
-                        <div className="mb-5 pb-4">
-                            <div className="row">
-                                <div className="col-lg-4">
-                                    <AmenitiesItem icon="users" title="2" description="Tamu Maksimal" />
-                                </div>
-                                <div className="col-lg-4">
-                                    <AmenitiesItem icon="bed" title="1 Super King" description="Tipe Tempat Tidur" />
-                                </div>
-                                <div className="col-lg-4">
-                                    <AmenitiesItem icon="ruler-combined" title="36 m²" description="Ukuran Kamar" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="page-amenities text-left">
-                            <div className="small text-muted">
+                        {(room.occupants || room.bed || room.size) && (
+                            <div className="mt-1 mt-lg-5 pb-4">
                                 <div className="row">
-                                    <div className="col-lg-4">
-                                        <ul className="nav flex-column">
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Shower
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                TV
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Telepon
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                AC
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Balkon
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <ul className="nav flex-column">
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Pemanas ruangan
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Kamar Rias
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                TV Kabel
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Perapian
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Toilet Tamu
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <ul className="nav flex-column">
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Pemandangan Kolam Renang
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Pemandangan Kota
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Telepon
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                AC
-                                            </li>
-                                            <li className="nav-item">
-                                                <i className="far fa-check-circle text-success fa-sm mr-2" />
-                                                Balkon
-                                            </li>
-                                        </ul>
+                                    {room.occupants && (
+                                        <div className="col-lg-4">
+                                            <AmenitiesItem icon="user-friends" title={room.occupants} description="Maximal Occupants" />
+                                        </div>
+                                    )}
+                                    {room.bed && (
+                                        <div className="col-lg-4">
+                                            <AmenitiesItem icon="bed" title={room.bed} description="Bed Type" />
+                                        </div>
+                                    )}
+                                    {room.size && (
+                                        <div className="col-lg-4">
+                                            <AmenitiesItem icon="ruler-combined" title={room.size} description="Room Size" />
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        {room.amenities && (
+                            <div className="page-amenities text-left mt-5">
+                                <div className="small text-muted">
+                                    <div className="row">
+                                        {[...Array(roomAmenitiesColLength)].map((_, i) => (
+                                            <div className="col-lg-4" key={i}>
+                                                <ul className="nav flex-column">
+                                                    {[...Array(roomAmenitiesInACol)].map((_, j) => (
+                                                        <li className="nav-item" key={j}>
+                                                            <div className="d-table-cell">
+                                                                {roomAmenities[(i * roomAmenitiesInACol) + j].indexOf('(prohibition)') !== -1 ? (
+                                                                    <i className="far fa-times-circle fa-sm text-danger mr-2"></i>
+                                                                ) : (
+                                                                        <i className="far fa-check-circle fa-sm text-success mr-2"></i>
+                                                                    )}
+                                                            </div>
+                                                            <div className="d-table-cell">
+                                                                {roomAmenities[(i * roomAmenitiesInACol) + j].replace('(prohibition)', '')}
+                                                            </div>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -135,7 +104,6 @@ const Room = ({ adminUrl, room }) => {
 };
 
 Room.propTypes = {
-    adminUrl: PropTypes.string.isRequired,
     room: PropTypes.object.isRequired,
 };
 

@@ -309,13 +309,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     margin-right: -0.5rem;
 }
 
-.mt-min-2 {
-    margin-top: -0.5rem;
-}
-
-.mb-min-2 {
-    margin-bottom: -0.5rem;
-}
+.mt-min-2 { margin-top: -0.5rem; }
+.mb-min-2 { margin-bottom: -0.5rem; }
 
 .ml-min-2 {
     margin-left: -0.5rem;
@@ -538,14 +533,7 @@ list .slick-track .slick-slide,
     background-size: 100%;
 }
 
-.amenities-item,
-.amenities-item .circle {
-    transition: 0.25s;
-}
-
-.amenities-item:hover {
-    margin-top: 1rem !important;
-}
+.amenities-item { margin-top: 30px; }
 
 /* --- Rooms --- */
 #rooms .rooms-body .rooms-item .item-content {
@@ -623,13 +611,22 @@ list .slick-track .slick-slide,
     height: 36px;
     padding: 0;
     margin: 0.25rem;
-    border: 2px solid #fff;
+    border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 #footer .footer-social-media .nav-item .nav-link.facebook:hover { background: #1877f2; border-color: #1877f2; }
 #footer .footer-social-media .nav-item .nav-link.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
 #footer .footer-social-media .nav-item .nav-link.instagram:hover { background: #c32aa3; border-color: #c32aa3; }
 #footer .footer-social-media .nav-item .nav-link.whatsapp:hover { background: #25d366; border-color: #25d366; }
+
+#footer .footer-copyright a {
+    color: inherit;
+    font-weight: bold;
+}
+
+#footer .footer-copyright a:hover {
+    text-decoration: underline;
+}
 
 /* --- Page --- */
 #page blockquote {
@@ -643,7 +640,8 @@ list .slick-track .slick-slide,
     width: 100%;
 }
 
-#page ul li:not(:last-child) {
+#page ul li:not(:last-child),
+#page .page-amenities [class *= "col"]:not(:last-child) ul {
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 }
 
@@ -659,6 +657,9 @@ list .slick-track .slick-slide,
         height: 100% !important;
         width: auto !important;
     }
+
+    /* --- Spacing --- */
+    .mb-lg-min-2 { margin-bottom: -0.5rem; }
 }
 
 @media only screen and (max-width: 1080px) {
@@ -687,8 +688,27 @@ list .slick-track .slick-slide,
         height: 250px;
     }
 
-    /* ------ Facilities ------ */
+    /* --- Amenities --- */
     #amenities .amenities-body {
         background-size: auto 100%;
+    }
+
+    .amenities-item { margin-top: 45px; }
+    .amenities-item .circle { 
+        position: unset !important; 
+        transform: none !important;
+    }
+
+    /* --- Footer --- */
+    #footer .footer-nav .nav-item .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    #footer .footer-nav .nav-item .nav-link:before {
+        display: none;
+    }
+
+    #footer .footer-nav .nav-item .nav-link:hover {
+        text-decoration: underline;
     }
 }

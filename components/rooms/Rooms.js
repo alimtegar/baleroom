@@ -1,7 +1,7 @@
 import Link from '../Link';
 import PropTypes from 'prop-types';
 
-const Rooms = ({ adminUrl, rooms, showFooter }) => {
+const Rooms = ({ rooms, showFooter }) => {
     return (
         <section id="rooms" className="text-center py-5">
             <div className="rooms-header mb-5 px-3">
@@ -21,7 +21,7 @@ const Rooms = ({ adminUrl, rooms, showFooter }) => {
                                 <div className={`col-lg-${col} p-0-25`} key={room.id}>
                                     <div className="rooms-item bg-mask-dark">
                                         <div className="item-img position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden">
-                                            <img src={adminUrl + room.image.url} alt={room.title} className={`position-absolute z-min-1 fit-${fit}`} />
+                                            <img src={process.env.ADMIN_URL + room.image[0].url} alt={room.title} className={`position-absolute z-min-1 fit-${fit}`} />
                                         </div>
                                         <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
                                             <span>
@@ -64,7 +64,6 @@ const Rooms = ({ adminUrl, rooms, showFooter }) => {
 };
 
 Rooms.propTypes = {
-    adminUrl: PropTypes.string.isRequired,
     rooms: PropTypes.array.isRequired,
     showFooter: PropTypes.bool.isRequired,
 };

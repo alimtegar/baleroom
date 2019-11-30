@@ -26,18 +26,17 @@ const Home = () => {
     const [socialMedia, setSocialMedia] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const adminUrl = process.env.ADMIN_URL ? fixUrl(process.env.ADMIN_URL) : 'https://example.com';
     const pageTitle = 'Rooms';
 
     useEffect(() => {
         Promise.all([
-            fetch(adminUrl + '/companies?_limit=1'),
-            fetch(adminUrl + '/links?position_eq=top'),
-            fetch(adminUrl + '/sliderimages'),
-            fetch(adminUrl + '/popularamenities?_limit=4'),
-            fetch(adminUrl + '/rooms?_limit=3'),
-            fetch(adminUrl + '/links?position_eq=bottom'),
-            fetch(adminUrl + '/socialmedias'),
+            fetch(process.env.ADMIN_URL + '/companies?_limit=1'),
+            fetch(process.env.ADMIN_URL + '/links?position_eq=top'),
+            fetch(process.env.ADMIN_URL + '/sliderimages'),
+            fetch(process.env.ADMIN_URL + '/popularamenities?_limit=4'),
+            fetch(process.env.ADMIN_URL + '/rooms?_limit=3'),
+            fetch(process.env.ADMIN_URL + '/links?position_eq=bottom'),
+            fetch(process.env.ADMIN_URL + '/socialmedias'),
         ])
             .then(async ([res1, res2, res3, res4, res5, res6, res7]) => {
                 const data1 = await res1.json();
@@ -72,15 +71,15 @@ const Home = () => {
                 <div>
                     <div className="sticky-top">
                         <SubNavbar company={company} />
-                        <Navbar adminUrl={adminUrl} company={company} nav={navbarNav} />
+                        <Navbar company={company} nav={navbarNav} />
                     </div>
 
                     <main id="main">
-                        <Slider adminUrl={adminUrl} sliderImages={sliderImages} />
+                        <Slider sliderImages={sliderImages} />
                         <AboutUs company={company} />
-                        <Amenities adminUrl={adminUrl} amenities={amenities} />
-                        <Rooms adminUrl={adminUrl} rooms={rooms} />
-                        <Location />
+                        <Amenities amenities={amenities} />
+                        <Rooms rooms={rooms} />
+                        <Location className="pt-5" />
                     </main>
 
                     <Footer

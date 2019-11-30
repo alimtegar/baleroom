@@ -19,15 +19,14 @@ const AccessAndAttractions = () => {
     const [socialMedia, setSocialMedia] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const adminUrl = process.env.ADMIN_URL ? fixUrl(process.env.ADMIN_URL) : 'https://example.com';
     const pageTitle = 'Access & Attractions';
 
     useEffect(() => {
         Promise.all([
-            fetch(adminUrl + '/companies?_limit=1'),
-            fetch(adminUrl + '/links?position_eq=top'),
-            fetch(adminUrl + '/links?position_eq=bottom'),
-            fetch(adminUrl + '/socialmedias'),
+            fetch(process.env.ADMIN_URL + '/companies?_limit=1'),
+            fetch(process.env.ADMIN_URL + '/links?position_eq=top'),
+            fetch(process.env.ADMIN_URL + '/links?position_eq=bottom'),
+            fetch(process.env.ADMIN_URL + '/socialmedias'),
         ])
             .then(async ([res1, res2, res3, res4]) => {
                 const data1 = await res1.json();
@@ -56,7 +55,7 @@ const AccessAndAttractions = () => {
                 <div>
                     <div className="sticky-top">
                         <SubNavbar company={company} />
-                        <Navbar adminUrl={adminUrl} company={company} nav={navbarNav} />
+                        <Navbar company={company} nav={navbarNav} />
                     </div>
 
                     <main id="main">
@@ -64,7 +63,7 @@ const AccessAndAttractions = () => {
                             <Location />
 
                             <div className="container">
-                                <div className="position-relative bg-white mt-min-4 p-5 border-bottom-2 shadow-sm">
+                                <div className="position-relative bg-white mt-min-4 px-3 px-lg-5 py-5 border-bottom-2 shadow-sm">
                                     <div className="page-header text-center mb-5">
                                         <h1 className="h4 mb-3">{pageTitle}</h1>
 

@@ -8,7 +8,7 @@ const Amenities = ({ amenities }) => {
     return (
         <section id="amenities" className="text-center py-5">
             <div className="amenities-body mask-dark text-white pt-5">
-                <div className="mb-5">
+                <div className="mb-1 mb-lg-5">
                     <h1 className="h4 mb-3">
                         Our Amenities
                     </h1>

@@ -6,12 +6,12 @@ const AboutUs = ({ company }) => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-8">
-                        <div className="about-us-body bg-white text-center mt-min-4 mb-0 p-5 border-bottom-2 shadow-sm">
+                        <div className="about-us-body bg-white text-center mt-min-4 mb-0 px-3 px-lg-5 py-5 border-bottom-2 shadow-sm">
                             <h1 className="h4 mb-3">
                                 About {company.title}
                             </h1>
                             <hr className="divider border-dark mb-3" />
-                            <p className="small text-muted text-center mb-0">
+                            <p className="small text-muted text-justify text-lg-center mb-0">
                                 {company.about}
                             </p>
                         </div>

@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const MySlider = ({ height, adminUrl, sliderImages, className }) => {
+const MySlider = ({ height, sliderImages, className }) => {
     let slider;
     const settings = {
         dots: false,
@@ -18,17 +18,17 @@ const MySlider = ({ height, adminUrl, sliderImages, className }) => {
     };
 
     return (
-        <div id="slider" className={`overflow-hidden ${className}`} style={{height: height}}>
+        <div id="slider" className={`position-relative overflow-hidden ${className}`} style={{height: height}}>
             <Slider ref={(c) => slider = c} {...settings}>
                 {sliderImages.map((sliderImage) => (
                     <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden" key={sliderImage.id}>
-                        <img src={adminUrl + sliderImage.image.url} className="position-absolute fit-height fit-lg-width" alt={sliderImage.title} />
+                        <img src={process.env.ADMIN_URL + sliderImage.image.url} className="position-absolute fit-height fit-lg-width" alt={sliderImage.title} />
                     </div>
                 ))}
             </Slider>
 
             {sliderImages.length > 1 ? (
-                <div className="slider-arrow position-absolute top-50 left-0 y-min-50 d-none d-lg-flex w-100 px-4">
+                <div className="slider-arrow position-absolute top-50 left-0 y-50 d-none d-lg-flex w-100 px-4">
                     <button className="btn btn-outline-light square rounded-right-2 shadow-sm" onClick={() => slider.slickPrev()}>
                         <i className="fa fa-chevron-left x-min-1-y-1" />
                     </button>
@@ -43,9 +43,8 @@ const MySlider = ({ height, adminUrl, sliderImages, className }) => {
 
 MySlider.propTypes = {
     height: PropTypes.any.isRequired,
-    adminUrl: PropTypes.string.isRequired,
     sliderImages: PropTypes.array.isRequired,
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
 };
 
 MySlider.defaultProps = {

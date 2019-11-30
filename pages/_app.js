@@ -13,7 +13,7 @@ class MyApp extends App {
         return (
             <div>
                 <NextNProgress 
-                    // color="#3fc3ff" 
+                    color="#3fc3ff" 
                 />
                 <Component {...pageProps} />
             </div>

@@ -1,13 +1,13 @@
 import Link from './Link';
 import PropTypes from 'prop-types';
 
-const Navbar = ({ adminUrl, company, nav }) => {
+const Navbar = ({ company, nav }) => {
     return (
         <nav id="navbar" className="navbar navbar-expand-lg bg-white shadow-sm pb-0 pb-lg-2">
             <div className="container">
                 <Link href="/">
                     <a className="navbar-brand position-absolute top-0 d-flex justify-content-center align-items-center bg-dark mr-0 shadow-sm">
-                        <img src={adminUrl + company.logo.url} alt={company.title} height="16" className="y-1" />
+                        <img src={process.env.ADMIN_URL + company.logo.url} alt={company.title} height="16" className="y-1" />
                     </a>
                 </Link>
 
@@ -28,7 +28,6 @@ const Navbar = ({ adminUrl, company, nav }) => {
 };
 
 Navbar.propTypes = {
-    adminUrl: PropTypes.string.isRequired, 
     company: PropTypes.object.isRequired,
     nav: PropTypes.array.isRequired,
 };

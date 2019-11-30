@@ -4,10 +4,11 @@ import Link from 'next/link';
 
 const ActiveLink = ({router, children, ...props}) => {
     const child = Children.only(children);
-
     let className = child.props.className || null;
     
-    if (router.pathname === props.href && props.activeClassName) {
+    let isActive = props.href !== '/' ? router.pathname.indexOf(props.href) > -1 : router.pathname === props.href;
+
+    if (isActive && props.activeClassName) {
         className = `${className !== null ? className : ''} ${props.activeClassName}`.trim();
     }
 
