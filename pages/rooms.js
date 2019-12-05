@@ -26,7 +26,7 @@ const MyRooms = () => {
         Promise.all([
             fetch(process.env.ADMIN_URL + '/companies?_limit=1'),
             fetch(process.env.ADMIN_URL + '/links?position_eq=top'),
-            fetch(process.env.ADMIN_URL + '/rooms?_limit=3'),
+            fetch(process.env.ADMIN_URL + '/rooms'),
             fetch(process.env.ADMIN_URL + '/links?position_eq=bottom'),
             fetch(process.env.ADMIN_URL + '/socialmedias'),
         ])

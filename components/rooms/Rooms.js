@@ -13,9 +13,12 @@ const Rooms = ({ rooms, showFooter }) => {
             <div className="rooms-body text-white">
                 <div className="container-fluid px-0 overflow-hidden">
                     <div className="row m-min-0-25">
-                        {rooms.map((room) => {
-                            const col = 4;
-                            const fit = 'height';
+                        {rooms.map((room, key) => {
+                            const a = key + 1;
+                            const b = a > 5 ? a % 5 : a;
+
+                            const col = b > 3 ? 6 : 4;
+                            const fit = b > 3 ? 'width' : 'height';
 
                             return (
                                 <div className={`col-lg-${col} p-0-25`} key={room.id}>

@@ -9,9 +9,8 @@ const Room = ({ room }) => {
     let sliderImages = [];
 
     const roomAmenities = room.amenities ? room.amenities.split('\n') : [];
-    const roomAmenitiesInACol = 12;
+    const roomAmenitiesInACol = 5;
     const roomAmenitiesColLength = Math.ceil(roomAmenities.length / roomAmenitiesInACol);
-
 
     room.image.map((roomImage, key) => {
         sliderImages.push({
@@ -23,7 +22,7 @@ const Room = ({ room }) => {
 
     return (
         <section id="page" className="text-center py-5">
-            <Slider height={360} sliderImages={sliderImages} className="mt-min-5" />
+            <Slider sliderImages={sliderImages} className="mt-min-5" />
 
             <div className="page-body">
                 <div className="container">
@@ -75,20 +74,24 @@ const Room = ({ room }) => {
                                         {[...Array(roomAmenitiesColLength)].map((_, i) => (
                                             <div className="col-lg-4" key={i}>
                                                 <ul className="nav flex-column">
-                                                    {[...Array(roomAmenitiesInACol)].map((_, j) => (
-                                                        <li className="nav-item" key={j}>
-                                                            <div className="d-table-cell">
-                                                                {roomAmenities[(i * roomAmenitiesInACol) + j].indexOf('(prohibition)') !== -1 ? (
-                                                                    <i className="far fa-times-circle fa-sm text-danger mr-2"></i>
-                                                                ) : (
-                                                                        <i className="far fa-check-circle fa-sm text-success mr-2"></i>
-                                                                    )}
-                                                            </div>
-                                                            <div className="d-table-cell">
-                                                                {roomAmenities[(i * roomAmenitiesInACol) + j].replace('(prohibition)', '')}
-                                                            </div>
-                                                        </li>
-                                                    ))}
+                                                    {[...Array(roomAmenitiesInACol)].map((_, j) => {
+                                                        const roomAmenitiesItem = roomAmenities[(i * roomAmenitiesInACol) + j];
+
+                                                        return roomAmenitiesItem && (
+                                                            <li className="nav-item" key={j}>
+                                                                <div className="d-table-cell">
+                                                                    {roomAmenitiesItem.indexOf('(prohibition)') !== -1 ? (
+                                                                        <i className="far fa-times-circle fa-sm text-danger mr-2"></i>
+                                                                    ) : (
+                                                                            <i className="far fa-check-circle fa-sm text-success mr-2"></i>
+                                                                        )}
+                                                                </div>
+                                                                <div className="d-table-cell">
+                                                                    {roomAmenitiesItem.replace('(prohibition)', '')}
+                                                                </div>
+                                                            </li>
+                                                        );
+                                                    })}
                                                 </ul>
                                             </div>
                                         ))}

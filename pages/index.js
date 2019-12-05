@@ -64,7 +64,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div id="home">
             <Head />
 
             {isLoading ? (<Loader />) : (

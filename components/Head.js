@@ -14,6 +14,8 @@ const MyHead = ({ title, description, keywords }) => {
             <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
 
             <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet" />
+            
+            <meta name="google-site-verification" content="tl-9G-lyIKKEj57v7htUQrmlOO2jSY_NsACKO5i3Q-s" />
         </Head>
     );
 };

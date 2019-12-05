@@ -4,7 +4,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const MySlider = ({ height, sliderImages, className }) => {
+import { getMeta } from '../helpers';
+
+const MySlider = ({ sliderImages, className }) => {
     let slider;
     const settings = {
         dots: false,
@@ -18,7 +20,7 @@ const MySlider = ({ height, sliderImages, className }) => {
     };
 
     return (
-        <div id="slider" className={`position-relative overflow-hidden ${className}`} style={{height: height}}>
+        <div id="slider" className={`position-relative overflow-hidden ${className}`}>
             <Slider ref={(c) => slider = c} {...settings}>
                 {sliderImages.map((sliderImage) => (
                     <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden" key={sliderImage.id}>
@@ -42,13 +44,8 @@ const MySlider = ({ height, sliderImages, className }) => {
 };
 
 MySlider.propTypes = {
-    height: PropTypes.any.isRequired,
     sliderImages: PropTypes.array.isRequired,
     className: PropTypes.string,
-};
-
-MySlider.defaultProps = {
-    height: 'calc(100vh - 80px)',
 };
 
 export default MySlider;

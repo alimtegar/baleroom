@@ -25,7 +25,7 @@ const Amenities = ({ amenities }) => {
                 </div>
             </div>
             <div className="amenities-footer mt-5 pt-4">
-                <Link href="/amenitites">
+                <Link href="/amenities">
                     <a role="button" className="btn btn-outline-dark">
                         VIEW ALL AMENITIES
                     </a>
