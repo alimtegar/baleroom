@@ -1,0 +1,42 @@
+{
+  "name": "baleroom",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "google-maps-react": "^2.0.2",
+    "imagemin-gifsicle": "^6.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "imagemin-svgo": "^7.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "markdown-to-jsx": "^6.10.3",
+    "next": "^9.1.1",
+    "next-fonts": "^0.19.0",
+    "next-images": "^1.2.0",
+    "next-optimized-images": "^2.5.4",
+    "nprogress": "^0.2.0",
+    "prop-types": "^15.7.2",
+    "react": "16.11.0",
+    "react-content-loader": "^4.3.2",
+    "react-dom": "16.11.0",
+    "react-slick": "^0.25.2",
+    "slick-carousel": "^1.8.1",
+    "svg-sprite-loader": "^4.1.6",
+    "webp-loader": "^0.5.0",
+    "webpack": "^4.41.2"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "file-loader": "^4.2.0",
+    "next-purgecss": "^3.1.1",
+    "url-loader": "^2.2.0"
+  }
+}
