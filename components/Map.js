@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Location = ({ className }) => {
+const Map = ({ className }) => {
     return (
         <div className={className}>
             <iframe 
@@ -10,15 +10,15 @@ const Location = ({ className }) => {
                 frameBorder="0" 
                 style={{ border: 0, }} 
                 allowFullScreen
-                title="Baleroom Location"
+                title="Baleroom Map"
                 className="mb-min-2"
             />
         </div>
     );
 };
 
-Location.propTypes = {
+Map.propTypes = {
     className: PropTypes.string,
 };
 
-export default Location;
+export default Map;

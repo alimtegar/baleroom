@@ -18,7 +18,7 @@ const Amenities = ({ amenities }) => {
                     <div className="row m-min-2">
                         {amenities.map((amenity) => (
                             <div className="col-lg-3" key={amenity.id}>
-                                <AmenitiesItem icon={amenity.icon} title={amenity.title} description="Popular Amenity" />
+                                <AmenitiesItem icon={amenity.icon} title={amenity.title} description="Amenity" />
                             </div>
                         ))}
                     </div>
@@ -27,7 +27,7 @@ const Amenities = ({ amenities }) => {
             <div className="amenities-footer mt-5 pt-4">
                 <Link href="/amenities">
                     <a role="button" className="btn btn-outline-dark">
-                        VIEW ALL AMENITIES
+                        View All Amenities
                     </a>
                 </Link>
             </div>

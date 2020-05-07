@@ -1,70 +1,42 @@
 import Link from '../Link';
 import PropTypes from 'prop-types';
 
-const Rooms = ({ rooms, showFooter }) => {
-    return (
-        <section id="rooms" className="text-center py-5">
-            <div className="rooms-header mb-5 px-3">
-                <h1 className="h4 mb-3">
-                    Our Rooms
+// Import Components
+import RoomsItem from './RoomsItem';
+
+const Rooms = ({ rooms, showFooter }) => (
+    <section id="rooms" className="text-center py-5">
+        <div className="rooms-header mb-5 px-3">
+            <h1 className="h4 mb-3">
+                Our Rooms
                 </h1>
-                <hr className="divider border-dark mb-3" />
-            </div>
-            <div className="rooms-body text-white">
-                <div className="container-fluid px-0 overflow-hidden">
-                    <div className="row m-min-0-25">
-                        {rooms.map((room, key) => {
-                            const a = key + 1;
-                            const b = a > 5 ? a % 5 : a;
+            <hr className="divider border-dark mb-3" />
+        </div>
+        <div className="rooms-body text-white">
+            <div className="container-fluid px-0 overflow-hidden">
+                <div className="row m-min-0-25">
+                    {rooms.map((room, key) => {
+                        const a = key + 1;
+                        const b = a > 5 ? a % 5 : a;
 
-                            const col = b > 3 ? 6 : 4;
-                            const fit = b > 3 ? 'width' : 'height';
+                        const col = b > 3 ? 6 : 4;
+                        const fit = b > 3 ? 'width' : 'height';
 
-                            return (
-                                <div className={`col-lg-${col} p-0-25`} key={room.id}>
-                                    <div className="rooms-item bg-mask-dark">
-                                        <div className="item-img position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden">
-                                            <img src={process.env.ADMIN_URL + room.image[0].url} alt={room.title} className={`position-absolute z-min-1 fit-${fit}`} />
-                                        </div>
-                                        <div className="item-content border-effect position-absolute top-50 left-50 xy-min-50 d-flex flex-column justify-content-center align-items-center">
-                                            <span>
-                                                <h3 className="h6 mb-2 pb-0-25">
-                                                    {room.description}
-                                                </h3>
-                                                <h2 className="h4 mb-3">
-                                                    {room.title}
-                                                </h2>
-                                                <div className="divider border-white"></div>
-
-                                                <div className="item-subcontent">
-                                                    <Link href="/room/id" as={'/rooms/' + room.id}>
-                                                        <a className="btn btn-outline-light mt-4 shadow-sm">
-                                                            MORE INFO
-                                                        </a>
-                                                    </Link>
-                                                </div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                        return (<RoomsItem col={col} fit={fit} id={room.id} title={room.title} subTitle={room.title} key={room.id} />);
+                    })}
                 </div>
             </div>
+        </div>
 
-            {showFooter ? (
-                <div className="rooms-footer mt-5">
-                    <Link href="/rooms">
-                        <a role="button" className="btn btn-outline-dark">
-                            VIEW ALL ROOMS
-                        </a>
-                    </Link>
-                </div>
-            ) : null}
-        </section>
-    );
-};
+        {showFooter ? (
+            <div className="rooms-footer mt-5">
+                <Link href="/rooms">
+                    <a role="button" className="btn btn-outline-dark">View All Rooms</a>
+                </Link>
+            </div>
+        ) : null}
+    </section>
+);
 
 Rooms.propTypes = {
     rooms: PropTypes.array.isRequired,

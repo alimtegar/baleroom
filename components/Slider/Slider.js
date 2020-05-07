@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
+import Head from 'next/head';
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-import { getMeta } from '../helpers';
+// Import Components
+import SliderItem from './SliderItem';
 
 const MySlider = ({ sliderImages, className }) => {
     let slider;
@@ -21,15 +20,16 @@ const MySlider = ({ sliderImages, className }) => {
 
     return (
         <div id="slider" className={`position-relative overflow-hidden ${className}`}>
+            <Head>
+                <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+            </Head>
+
             <Slider ref={(c) => slider = c} {...settings}>
-                {sliderImages.map((sliderImage) => (
-                    <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden" key={sliderImage.id}>
-                        <img src={process.env.ADMIN_URL + sliderImage.image.url} className="position-absolute fit-height fit-lg-width" alt={sliderImage.title} />
-                    </div>
-                ))}
+                {sliderImages.map((sliderImage) => (<SliderItem sliderImage={sliderImage} key={sliderImage.id} />))}
             </Slider>
 
-            {sliderImages.length > 1 ? (
+            {sliderImages.length ? (
                 <div className="slider-arrow position-absolute top-50 left-0 y-50 d-none d-lg-flex w-100 px-4">
                     <button className="btn btn-outline-light square rounded-right-2 shadow-sm" onClick={() => slider.slickPrev()}>
                         <i className="fa fa-chevron-left x-min-1-y-1" />
