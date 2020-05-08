@@ -1,6 +1,7 @@
+const withOptimizedImages = require('next-optimized-images');
 const withPWA = require('next-pwa');
 
-module.exports = withPWA({
+const config = {
     env: {
         APP_NAME: 'Baleroom',
         APP_DESCRIPTION: 'Menawarkan hotel apartemen. Memberikan keunggulan pelayanan kamar yang nyaman dan 24 jam.',
@@ -14,4 +15,6 @@ module.exports = withPWA({
     pwa: {
         dest: 'public'
     }
-});
+};
+
+module.exports = withPWA(withOptimizedImages(config));

@@ -156,7 +156,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 .bg-primary { background: #3fc3ff !important; }
 
 /* Background Mask */
-.bg-mask-dark { background: rgba(0, 0, 0, 0.5) !important; }
+.bg-mask-dark { background: rgba(33, 37, 41, 0.5) !important; }
 
 /* Mask */
 .mask-dark { box-shadow: inset 0 0 0 1000px rgba(33, 37, 41, 0.83); }

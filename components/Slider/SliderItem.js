@@ -27,7 +27,7 @@ const SliderItem = ({ sliderImage }) => {
         <div className="position-relative d-flex justify-content-center align-items-center h-100 overflow-hidden" key={sliderImage.id}>
             {!isObjectEmpty(sliderItemImage) ? (
                 <img
-                    src={sliderItemImage.data.data.full_url}
+                    src={apiUrl + 'assets/' + sliderItemImage.data.private_hash + '?w=1440&h=1440&q=80&f=contain'}
                     className="position-absolute fit-height fit-sm-width"
                     alt={sliderImage.title}
                 />
