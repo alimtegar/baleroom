@@ -70,7 +70,7 @@ const MyRooms = () => {
                         <Rooms rooms={rooms} showFooter={false} />
                     </main>
 
-                    <Footer title={company.title} nav={footerNav} socialMedias={company.social_medias}/>
+                    <Footer title={company.title} email={company.email} nav={footerNav} socialMedias={company.social_medias}/>
                 </div>
             )}
         </div>

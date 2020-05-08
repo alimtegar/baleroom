@@ -564,7 +564,6 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     border: 2px solid #fff;
 }
 
-#footer .footer-social-media .nav-item .nav-link.facebook { font-size: 1.2em; }
 #footer .footer-social-media .nav-item .nav-link.instagram { font-size: 1.5em; }
 #footer .footer-social-media .nav-item .nav-link { font-size: 1.2em; }
 
@@ -572,7 +571,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 #footer .footer-social-media .nav-item .nav-link.twitter:hover { background: #1da1f2; border-color: #1da1f2; }
 #footer .footer-social-media .nav-item .nav-link.instagram:hover { background: #c32aa3; border-color: #c32aa3; }
 #footer .footer-social-media .nav-item .nav-link.whatsapp:hover { background: #25d366; border-color: #25d366; }
-#footer .footer-social-media .nav-item .nav-link:hover { background: #CB0303; border-color: #CB0303; }
+#footer .footer-social-media .nav-item .nav-link:hover { background: #3fc3ff; border-color: #3fc3ff; }
 
 #footer .footer-copyright a {
     color: inherit;

@@ -1,7 +1,7 @@
 import Link from './Link';
 import PropTypes from 'prop-types';
 
-const Footer = ({ title, nav, socialMedias }) => {
+const Footer = ({ title, email, nav, socialMedias }) => {
     return (
         <footer id="footer" className="bg-dark">
             <div className="container">
@@ -18,39 +18,47 @@ const Footer = ({ title, nav, socialMedias }) => {
                     <ul className="footer-social-media nav m-min-1">
                         {Object.entries(socialMedias).map((socialMedia) => {
                             const title = socialMedia[0];
+                            const username = socialMedia[1];
                             let icon;
+                            let url;
 
                             switch (title.toLowerCase()) {
                                 case 'facebook':
                                     icon = 'facebook-f';
+                                    url = 'https://facebook.com/' + username;
                                     break;
                                 case 'twitter':
                                     icon = 'twitter';
+                                    url = 'https://twitter.com/' + username;
                                     break;
                                 case 'instagram':
                                     icon = 'instagram';
+                                    url = 'https://instagram.com/' + username;
                                     break;
                                 case 'youtube':
                                     icon = 'youtube';
+                                    url = 'https://youtube.com/' + username;
                                     break;
                                 case 'pinterest':
                                     icon = 'pinterest';
+                                    url = 'https://pinterest.com/' + username;
                                     break;
                                 case 'whatsapp':
                                     icon = 'whatsapp';
+                                    url = 'https://wa.me/' + username;
                                     break;
                             }
 
                             return (
                                 <li className="nav-item" key={Math.random()}>
-                                    <a href={socialMedia.link} className={`nav-link ${title.toLowerCase()}`} target="_blank" rel="noopener" rel="noreferer" aria-label={title}>
+                                    <a href={url} className={`nav-link ${title.toLowerCase()}`} target="_blank" rel="noopener noreferrer" aria-label={title}>
                                         <i className={`fab fa-${icon}`} />
                                     </a>
                                 </li>
                             );
                         })}
                         <li className="nav-item">
-                            <a href="#" className="nav-link email" target="_blank" rel="noopener" rel="noreferer" aria-label="Email">
+                            <a href={"mailto://" + email} className="nav-link email" target="_blank" rel="noopener noreferrer" aria-label="Email">
                                 <i className="far fa-envelope" />
                             </a>
                         </li>
@@ -73,6 +81,7 @@ const Footer = ({ title, nav, socialMedias }) => {
 
 Footer.propTypes = {
     title: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     nav: PropTypes.array.isRequired,
     socialMedias: PropTypes.object.isRequired,
 };

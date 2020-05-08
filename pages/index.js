@@ -83,7 +83,7 @@ const Home = () => {
                         <Map className="pt-5" />
                     </main>
 
-                    <Footer title={company.title} nav={footerNav} socialMedias={company.social_medias}/>
+                    <Footer title={company.title} email={company.email} nav={footerNav} socialMedias={company.social_medias}/>
                 </div>
             )}
         </div>
