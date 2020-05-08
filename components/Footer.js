@@ -1,7 +1,7 @@
 import Link from './Link';
 import PropTypes from 'prop-types';
 
-const Footer = ({ title, email, nav, socialMedias }) => {
+const Footer = ({ title, email, nav, socialMedias, pageUrlSlug }) => {
     return (
         <footer id="footer" className="bg-dark">
             <div className="container">
@@ -9,9 +9,11 @@ const Footer = ({ title, email, nav, socialMedias }) => {
                     <ul className="footer-nav nav flex-column flex-lg-row align-items-center mr-0 mr-lg-auto ml-lg-0 mb-3 mb-lg-0">
                         {nav.map((navItem) => (
                             <li className="nav-item" key={navItem.id}>
-                                <a href={navItem.link} className="nav-link">
-                                    {navItem.title}
-                                </a>
+                                <Link href={navItem.url} activeClassName="active" pageUrlSlug={pageUrlSlug}>
+                                    <a className="nav-link">
+                                        {navItem.title}
+                                    </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -84,6 +86,11 @@ Footer.propTypes = {
     email: PropTypes.string.isRequired,
     nav: PropTypes.array.isRequired,
     socialMedias: PropTypes.object.isRequired,
+    pageUrlSlug: PropTypes.string,
 };
+
+Footer.defaultProps = {
+    pageUrlSlug: '',
+}
 
 export default Footer;

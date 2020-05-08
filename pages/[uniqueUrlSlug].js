@@ -2,23 +2,18 @@ import { Fragment, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 /* Components */
-import Head from '../../components/Head';
-import Loader from '../../components/Loader';
-import Navbar from '../../components/Navbar';
-import SubNavbar from '../../components/SubNavbar';
-import Room from '../../components/rooms/Room';
-import Footer from '../../components/Footer';
-
-/* Helpers */
-import { fixUrl } from '../../helpers';
+import Head from '../components/Head';
+import Loader from '../components/Loader';
+import Navbar from '../components/Navbar';
+import SubNavbar from '../components/SubNavbar';
+import Footer from '../components/Footer';
 
 const MyRoom = () => {
     /* States */
     const [company, setCompany] = useState({});
     const [logo, setLogo] = useState({});
     const [navbarNav, setNavbarNav] = useState([]);
-    const [room, setRoom] = useState({});
-    const [roomImages, setRoomImages] = useState({});
+    const [page, setPage] = useState({});
     const [footerNav, setFooterNav] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -30,7 +25,7 @@ const MyRoom = () => {
             Promise.all([
                 fetch(process.env.API_URL + 'items/profile'),
                 fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=top&sort=order'),
-                fetch(process.env.API_URL + 'items/rooms?filter[status]=published&sort=order&limit=3&filter[unique_url_slug]=' + uniqueUrlSlug),
+                fetch(process.env.API_URL + 'items/pages?filter[status]=published&filter[unique_url_slug]=' + uniqueUrlSlug),
                 fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=bottom&sort=order'),
             ])
                 .then(async ([res1, res2, res3, res4]) => {
@@ -43,41 +38,18 @@ const MyRoom = () => {
                 })
                 .then(([data1, data2, data3, data4]) => {
                     const _company = data1.data[0];
-                    const _room = data3.data[0];
+                    const _page = data3.data[0];
 
                     setCompany(_company);
                     setNavbarNav(data2.data);
-                    setRoom(_room);
+                    setPage(_page);
                     setFooterNav(data4.data);
 
-                    // Fetch Logo and Room Images
-                    Promise.all([
-                        fetch(process.env.API_URL + 'files/' + _company.logo),
-                        fetch(process.env.API_URL + 'items/room_images?filter[rooms_id]=' + _room.id)
-                    ])
-                        .then(async ([res1, res2]) => {
-                            const data1 = await res1.json();
-                            const data2 = await res2.json();
-
-                            return [data1, data2];
-                        })
-                        .then(([data1, data2]) => {
-                            const _roomImages = data2.data;
-                            let __roomImages = [];
-
-                            _roomImages.map((_roomImage, i) => {
-                                const __roomImage = {
-                                    id: _roomImage.id,
-                                    title: _room.title + ' ' + (i + 1),
-                                    image: _roomImage.directus_files_id,
-                                };
-
-                                __roomImages.push(__roomImage);
-                            });
-
-                            setLogo(data1);
-                            setRoomImages(__roomImages);
-
+                    // Fetch Logo
+                    fetch(process.env.API_URL + 'files/' + _company.logo)
+                        .then((res) => res.json())
+                        .then((logo) => {
+                            setLogo(logo);
                             setIsLoading(false);
                         })
                         .catch((err) => console.log(err));
@@ -89,21 +61,33 @@ const MyRoom = () => {
 
     return (
         <Fragment>
-            <Head title="Baleroom | Rooms" />
+            <Head />
 
             {isLoading ? (<Loader />) : (
                 <Fragment>
-                    <Head title={"Baleroom | " + room.title} />
+                    <Head subTitle={page.title} />
                     <div className="sticky-top">
                         <SubNavbar address={company.address} email={company.email} phone={company.phone} />
                         <Navbar logo={logo} title={company.title} nav={navbarNav} />
                     </div>
 
                     <main id="main">
-                        <Room room={room} roomImages={roomImages} />
+                        <section className="py-5">
+                            <div className="container">
+                                <div className="facilities-header text-center mb-5 px-3">
+                                    <h1 className="h4 mb-3">
+                                        {page.title}
+                                    </h1>
+                                    <hr className="divider border-dark" />
+                                </div>
+                                <div className="row m-min-2">
+                                    <div className="small text-muted text-justify mb-0" dangerouslySetInnerHTML={{ __html: page.content }} />
+                                </div>
+                            </div>
+                        </section>
                     </main>
 
-                    <Footer title={company.title} email={company.email} nav={footerNav} socialMedias={company.social_medias}/>
+                    <Footer title={company.title} email={company.email} nav={footerNav} socialMedias={company.social_medias} pageUrlSlug={uniqueUrlSlug} />
                 </Fragment>
             )}
         </Fragment>

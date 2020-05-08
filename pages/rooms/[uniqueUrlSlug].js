@@ -30,7 +30,7 @@ const MyRoom = () => {
             Promise.all([
                 fetch(process.env.API_URL + 'items/profile'),
                 fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=top&sort=order'),
-                fetch(process.env.API_URL + 'items/rooms?filter[status]=published&sort=order&limit=3&filter[unique_url_slug]=' + uniqueUrlSlug),
+                fetch(process.env.API_URL + 'items/rooms?filter[status]=published&filter[unique_url_slug]=' + uniqueUrlSlug),
                 fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=bottom&sort=order'),
             ])
                 .then(async ([res1, res2, res3, res4]) => {
@@ -89,11 +89,11 @@ const MyRoom = () => {
 
     return (
         <Fragment>
-            <Head title="Baleroom | Rooms" />
+            <Head />
 
             {isLoading ? (<Loader />) : (
                 <Fragment>
-                    <Head title={"Baleroom | " + room.title} />
+                    <Head subTitle={room.title} />
                     <div className="sticky-top">
                         <SubNavbar address={company.address} email={company.email} phone={company.phone} />
                         <Navbar logo={logo} title={company.title} nav={navbarNav} />

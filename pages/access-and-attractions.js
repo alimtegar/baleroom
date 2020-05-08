@@ -59,7 +59,7 @@ const AccessAndAttractions = () => {
 
     return (
         <div>
-            <Head title={`Baleroom | ${pageTitle}`} />
+            <Head subTitle={pageTitle} />
 
             {isLoading ? (<Loader />) : (
                 <div>

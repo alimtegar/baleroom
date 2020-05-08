@@ -57,7 +57,7 @@ const MyRooms = () => {
 
     return (
         <div>
-            <Head title={`Baleroom | ${pageTitle}`} />
+            <Head subTitle={pageTitle} />
 
             {isLoading ? (<Loader />) : (
                 <div>

@@ -548,7 +548,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 }
 
 #footer .footer-nav .nav-item .nav-link:hover:before,
-#footer .footer-nav .nav-item .nav-link.active:hover:before {
+#footer .footer-nav .nav-item .nav-link.active:before {
     width: 100%;
 }
 

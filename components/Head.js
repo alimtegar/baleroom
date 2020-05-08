@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 
-const MyHead = ({ title, description, keywords }) => {
+const MyHead = ({ title, subTitle, description, keywords }) => {
     return (
         <Head>
-            <title> {title} </title>
+            <title>{title + (subTitle ? ' | ' + subTitle : '')}</title>
 
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta content={title} name="title" />
+            <meta content={title + (subTitle ? ' | ' + subTitle : '')} name="title" />
             <meta content={description} name="description" />
             <meta content={keywords} name="keywords" />
             <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -22,12 +22,14 @@ const MyHead = ({ title, description, keywords }) => {
 
 MyHead.propTypes = {
     title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     keywords: PropTypes.string.isRequired,
 };
 
 MyHead.defaultProps = {
     title: 'Baleroom',
+    subTitle: '',
     description: 'Beleroom Hotel Apartement',
     keywords: 'baleroom,hotel,apartemen',
 };

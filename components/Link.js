@@ -1,18 +1,28 @@
 import React, {Children} from 'react';
 import {withRouter} from 'next/router';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const ActiveLink = ({router, children, ...props}) => {
     const child = Children.only(children);
-    let className = child.props.className || null;
+    let className = child.props.className || null
+    let currentPageUrlSlug;
     
-    let isActive = props.href !== '/' ? router.pathname.indexOf(props.href) > -1 : router.pathname === props.href;
+    if (typeof props.pageUrlSlug !== 'undefined') {
+        currentPageUrlSlug = '/' + props.pageUrlSlug;
+    } else {
+        currentPageUrlSlug = router.pathname;
+    }
+
+    let isActive = props.href !== '/' ? currentPageUrlSlug.indexOf(props.href) > -1 : currentPageUrlSlug === props.href;
 
     if (isActive && props.activeClassName) {
+        
         className = `${className !== null ? className : ''} ${props.activeClassName}`.trim();
     }
 
     delete props.activeClassName;
+    delete props.pageUrlSlug;
 
     return (
         <Link {...props}>
