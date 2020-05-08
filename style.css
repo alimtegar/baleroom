@@ -451,7 +451,39 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     background-size: 100%;
 }
 
-.amenities-item { margin-top: 30px; }
+.amenities-item { 
+    align-items: center;
+    margin-top: 30px;
+}
+
+.amenities-item.amenities-item-primary {
+    display: block;
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #212529;
+}
+
+.amenities-item.amenities-item-secondary {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-left: 2px solid #212529;
+}
+
+.amenities-item-primary .amenities-icon-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.amenities-item-secondary .amenities-icon-container {
+    margin-right: 1rem;
+}
+
 
 /* --- Rooms --- */
 #rooms .rooms-body .rooms-item .item-content {
@@ -586,6 +618,19 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     .mb-lg-min-2 { margin-bottom: -0.5rem; }
 }
 
+@media only screen and (min-width: 360px) {
+    /* ------ Redefined and Custom Utilities ------ */
+    /* --- Fit --- */
+    .fit-sm-width {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .fit-sm-height {
+        height: 100% !important;
+        width: auto !important;
+    }
+}
+
 @media only screen and (max-width: 1080px) {
     /* ------ Navbar ------ */
     #navbar { padding-top: 5rem; }
@@ -607,10 +652,28 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
     /* --- Amenities --- */
     #amenities .amenities-body { background-size: auto 100%; }
 
-    .amenities-item { margin-top: 45px; }
+    .amenities-item { 
+        margin-top: 45px; 
+    }
+
+    .amenities-item.amenities-item-primary {
+        display: flex;
+        text-align: left;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: unset;
+        border-left: 2px solid #212529;
+    }
+
     .amenities-item .circle { 
         position: unset !important; 
         transform: none !important;
+    }
+
+    .amenities-item-primary .amenities-icon-container {
+        position: unset;
+        transform: unset;
+        margin-right: 1rem;
     }
 
     /* --- Footer --- */

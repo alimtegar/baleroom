@@ -6,7 +6,7 @@ import Loader from '../components/Loader';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
 import Footer from '../components/Footer';
-import AmenitiesItemIcon from '../components/Amenities/AmenitiesItemIcon';
+import AmenitiesItemIconImage from '../components/Amenities/AmenitiesItemIconImage';
 
 const MyAmenities = () => {
     /* States */
@@ -80,7 +80,7 @@ const MyAmenities = () => {
                                         <div className="col-lg-6 p-2" key={key}>
                                             <div className="p-4 border-bottom-2 h-100 shadow-sm">
                                                 <div className="d-flex align-items-center mb-3">
-                                                    <AmenitiesItemIcon title={amenity.title} icon={amenity.icon} />
+                                                    <AmenitiesItemIconImage title={amenity.title} icon={amenity.icon} />
                                                     <div className="ml-3">
                                                         <h3 className="small text-muted font-weight-normal mb-1">Amenity</h3>
                                                         <h2 className="h6 mb-1">

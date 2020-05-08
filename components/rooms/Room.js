@@ -1,35 +1,35 @@
 import PropTypes from 'prop-types';
-import Markdown from 'markdown-to-jsx';
 
 /* Components */
 import Slider from '../Slider';
 import AmenitiesItem from '../amenities/AmenitiesItem';
 
-const Room = ({ room }) => {
-    let sliderImages = [];
+const Room = ({ room, roomImages }) => {
+    // let sliderImages = [];
 
-    const roomAmenities = room.amenities ? room.amenities.split('\n') : [];
+    const roomAmenities = room.amenities;
     const roomAmenitiesInACol = 5;
     const roomAmenitiesColLength = Math.ceil(roomAmenities.length / roomAmenitiesInACol);
 
-    room.image.map((roomImage, key) => {
-        sliderImages.push({
-            id: key,
-            image: roomImage,
-            title: room.title,
-        });
-    });
+    // Create Slider Images
+    // room.image.map((roomImage, key) => {
+    //     sliderImages.push({
+    //         id: key,
+    //         image: roomImage,
+    //         title: room.title,
+    //     });
+    // });
 
     return (
         <section id="page" className="text-center py-5">
-            <Slider sliderImages={sliderImages} className="mt-min-5" />
+            <Slider sliderImages={roomImages} className="mt-min-5" />
 
             <div className="page-body">
                 <div className="container">
                     <div className="position-relative bg-white mt-min-4 px-3 px-lg-5 py-5 border-bottom-2 shadow-sm">
                         <div className="page-header mb-5 px-3">
                             <h2 className="h6 mb-2 pb-0-5">
-                                {room && room.description}
+                                {room && room.sub_title}
                             </h2>
                             <h1 className="h4 mb-3">
                                 {room && room.title}
@@ -38,29 +38,25 @@ const Room = ({ room }) => {
                         </div>
 
                         <div className="page-content text-left">
-                            <div className="small text-justify text-muted">
-                                <Markdown>
-                                    {room.content}
-                                </Markdown>
-                            </div>
+                            <div className="small text-justify text-muted" dangerouslySetInnerHTML={{ __html: room.content }} />
                         </div>
 
                         {(room.occupants || room.bed || room.size) && (
                             <div className="mt-1 mt-lg-5 pb-4">
                                 <div className="row">
-                                    {room.occupants && (
-                                        <div className="col-lg-4">
-                                            <AmenitiesItem icon="user-friends" title={room.occupants} description="Maximal Occupants" />
+                                    {room.maximal_occupants && (
+                                        <div className="col-lg-3">
+                                            <AmenitiesItem icon="user-friends" title={room.maximal_occupants} description="Max. Occupants" secondary={true}/>
                                         </div>
                                     )}
-                                    {room.bed && (
-                                        <div className="col-lg-4">
-                                            <AmenitiesItem icon="bed" title={room.bed} description="Bed Type" />
+                                    {room.bed_type && (
+                                        <div className="col-lg-6">
+                                            <AmenitiesItem icon="bed" title={room.bed_type} description="Bed Type" secondary={true} />
                                         </div>
                                     )}
                                     {room.size && (
-                                        <div className="col-lg-4">
-                                            <AmenitiesItem icon="ruler-combined" title={room.size} description="Room Size" />
+                                        <div className="col-lg-3">
+                                            <AmenitiesItem icon="ruler-combined" title={room.size} description="Room Size" secondary={true} />
                                         </div>
                                     )}
                                 </div>
@@ -80,14 +76,11 @@ const Room = ({ room }) => {
                                                         return roomAmenitiesItem && (
                                                             <li className="nav-item" key={j}>
                                                                 <div className="d-table-cell">
-                                                                    {roomAmenitiesItem.indexOf('(prohibition)') !== -1 ? (
-                                                                        <i className="far fa-times-circle fa-sm text-danger mr-2"></i>
-                                                                    ) : (
-                                                                            <i className="far fa-check-circle fa-sm text-success mr-2"></i>
-                                                                        )}
+                                                                    {/* <i className="far fa-times-circle fa-sm text-danger mr-2"></i> */}
+                                                                    <i className="far fa-check-circle fa-sm text-success mr-2"></i>
                                                                 </div>
                                                                 <div className="d-table-cell">
-                                                                    {roomAmenitiesItem.replace('(prohibition)', '')}
+                                                                    {roomAmenitiesItem}
                                                                 </div>
                                                             </li>
                                                         );
@@ -108,6 +101,7 @@ const Room = ({ room }) => {
 
 Room.propTypes = {
     room: PropTypes.object.isRequired,
+    roomImages: PropTypes.array.isRequired,
 };
 
 export default Room;

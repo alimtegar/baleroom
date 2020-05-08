@@ -21,12 +21,6 @@ const MyRooms = () => {
 
     useEffect(() => {
         Promise.all([
-            // fetch(process.env.ADMIN_URL + '/companies?_limit=1'),
-            // fetch(process.env.ADMIN_URL + '/links?position_eq=top'),
-            // fetch(process.env.ADMIN_URL + '/rooms'),
-            // fetch(process.env.ADMIN_URL + '/links?position_eq=bottom'),
-            // fetch(process.env.ADMIN_URL + '/socialmedias'),
-
             fetch(process.env.API_URL + 'items/profile'),
             fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=top&sort=order'),
             fetch(process.env.API_URL + 'items/rooms?filter[status]=published&sort=order'),

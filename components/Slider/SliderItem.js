@@ -28,7 +28,7 @@ const SliderItem = ({ sliderImage }) => {
             {!isObjectEmpty(sliderItemImage) ? (
                 <img
                     src={sliderItemImage.data.data.full_url}
-                    className="position-absolute fit-height fit-lg-width"
+                    className="position-absolute fit-height fit-sm-width"
                     alt={sliderImage.title}
                 />
             ) : (<BackgroundLoader />)}

@@ -22,7 +22,7 @@ const Rooms = ({ rooms, showFooter }) => (
                         const col = b > 3 ? 6 : 4;
                         const fit = b > 3 ? 'width' : 'height';
 
-                        return (<RoomsItem col={col} fit={fit} id={room.id} title={room.title} subTitle={room.title} key={room.id} />);
+                        return (<RoomsItem col={col} fit={fit} id={room.id} title={room.title} subTitle={room.title} uniqueUrlSlug={room.unique_url_slug} key={room.id} />);
                     })}
                 </div>
             </div>

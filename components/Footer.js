@@ -7,7 +7,6 @@ const Footer = ({ title, nav, socialMedias }) => {
             <div className="container">
                 <div className="footer-panel d-flex flex-column flex-lg-row justify-content-center align-items-center py-5 py-lg-2">
                     <ul className="footer-nav nav flex-column flex-lg-row align-items-center mr-0 mr-lg-auto ml-lg-0 mb-3 mb-lg-0">
-                        {console.log(nav)}
                         {nav.map((navItem) => (
                             <li className="nav-item" key={navItem.id}>
                                 <a href={navItem.link} className="nav-link">
@@ -64,7 +63,7 @@ const Footer = ({ title, nav, socialMedias }) => {
                         &copy; <Link href="/"><a>{title}</a></Link> {new Date().getFullYear()}
                         <span className="text-muted mx-3">|</span>
 
-                        Developed by <a href="https://alter.web.id" target="_blank" rel="noopener">Alterweb</a>
+                        Developed by <a href={process.env.DEVELOPER_URL} target="_blank" rel="noreferrer noopener">{process.env.DEVELOPER_NAME}</a>
                     </p>
                 </div>
             </div >

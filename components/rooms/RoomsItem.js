@@ -8,7 +8,7 @@ import { BackgroundLoader } from '../Loaders';
 // Import Helpers
 import { isObjectEmpty } from '../../helpers';
 
-const RoomsItem = ({ col, fit, id, title, subTitle, image }) => {
+const RoomsItem = ({ col, fit, id, title, subTitle, uniqueUrlSlug }) => {
     const apiUrl = process.env.API_URL;
 
     // Use State
@@ -47,7 +47,7 @@ const RoomsItem = ({ col, fit, id, title, subTitle, image }) => {
                             <div className="divider border-white"></div>
 
                             <div className="item-subcontent">
-                                <Link href="/room/id" as={'/rooms/' + id}>
+                                <Link href="/room/id" as={'/rooms/' + uniqueUrlSlug}>
                                     <a className="btn btn-outline-light mt-4 shadow-sm">More Info</a>
                                 </Link>
                             </div>
@@ -71,6 +71,7 @@ RoomsItem.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     subTitle: PropTypes.string.isRequired,
+    uniqueUrlSlug: PropTypes.string.isRequired,
 };
 
 export default RoomsItem;

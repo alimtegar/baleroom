@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 
 // Import Components
 import AmenitiesItemIcon from './AmenitiesItemIcon';
+import AmenitiesItemIconImage from './AmenitiesItemIconImage';
 
-const AmenitiesItem = ({ icon, title, description }) => {
+const AmenitiesItem = ({ icon, title, description, secondary }) => {
     return (
-        <div className="amenities-item position-relative d-flex d-lg-block align-items-center bg-white text-body mb-min-4 px-4 px-lg-3 py-4 py-lg-5 text-left text-lg-center border-bottom-2 shadow-sm">
-            <div className="position-absolute top-0 left-50 xy-min-50 mr-3 mr-lg-0">
-                <AmenitiesItemIcon title={title} icon={icon} />
+        <div className={`amenities-item position-relative bg-white text-body mb-min-4 px-4 px-lg-3 shadow-sm ${secondary ? 'amenities-item-secondary' : 'amenities-item-primary'}`}>
+            <div className="amenities-icon-container">
+                {isNaN(icon) ? (<AmenitiesItemIcon icon={icon} />) : (<AmenitiesItemIconImage title={title} icon={icon} />)}
             </div>
             <div>
                 <h3 className="x-small font-weight-normal text-muted mb-1">{description}</h3>
@@ -18,9 +19,14 @@ const AmenitiesItem = ({ icon, title, description }) => {
 };
 
 AmenitiesItem.propTypes = {
-    icon: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+    icon: PropTypes.any.isRequired,
+    title: PropTypes.any.isRequired,
     description: PropTypes.string.isRequired,
+    secondary: PropTypes.bool.isRequired,
+};
+
+AmenitiesItem.defaultProps = {
+    secondary: false,
 };
 
 export default AmenitiesItem;

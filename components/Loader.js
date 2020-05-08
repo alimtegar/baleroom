@@ -7,7 +7,7 @@ const Loader = () => {
             backgroundPosition: 'center',
         }}>
             {/* <div style={{ transform: 'translateY(-7.5px)' }}> */}
-                <img src="/static/images/baleroom-logo.png" alt="Baleroom" className="mb-3"/>
+                <img src="/static/images/baleroom-logo.png" alt={process.env.APP_NAME} className="mb-3"/>
                 <BarLoader
                     color={"#fff"}
                     css={{
