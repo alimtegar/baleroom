@@ -6,7 +6,7 @@ import Head from '../../components/Head';
 import Loader from '../../components/Loader';
 import Navbar from '../../components/Navbar';
 import SubNavbar from '../../components/SubNavbar';
-import Room from '../../components/rooms/Room';
+import Room from '../../components/Rooms/Room';
 import Footer from '../../components/Footer';
 
 /* Helpers */
