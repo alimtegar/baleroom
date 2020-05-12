@@ -13,6 +13,9 @@ const MyRoom = () => {
     const [company, setCompany] = useState({
         logo: 0,
         title: '',
+        address: '',
+        phone: '',
+        email: '',
         social_medias: {},
     });
     const [navbarNav, setNavbarNav] = useState([]);

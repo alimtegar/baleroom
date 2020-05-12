@@ -19,7 +19,7 @@ const AboutUs = ({ content }) => {
                                 <div className="small text-muted text-justify text-lg-center mb-0" dangerouslySetInnerHTML={{ __html: content }} />
                             ) : (
                                 <div className="mb-3">
-                                    <MultiLineTextLoader lineTotal={3} lineHeight={5.25} height={16} width="100%" />
+                                    <MultiLineTextLoader lineTotal={3} lineHeight={5.25} height={16} width="100%" align="center" />
                                 </div>
                             )}
                         </div>

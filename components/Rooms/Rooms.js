@@ -8,7 +8,7 @@ import {range} from '../../helpers';
 import RoomsItem from './RoomsItem';
 import RoomsItemLoader from './RoomsItemLoader';
 
-const Rooms = ({ rooms, showFooter }) => (
+const Rooms = ({ rooms, showFooter, loaderTotal }) => (
     <section id="rooms" className="text-center py-5">
         <div className="rooms-header mb-5 px-3">
             <h1 className="h4 mb-3">
@@ -27,7 +27,7 @@ const Rooms = ({ rooms, showFooter }) => (
                         const fit = b > 3 ? 'width' : 'height';
 
                         return (<RoomsItem col={col} fit={fit} id={room.id} title={room.title} subTitle={room.title} uniqueUrlSlug={room.unique_url_slug} key={room.id} />);
-                    }) : range(0, 3).map((key) => {
+                    }) : range(0, loaderTotal).map((key) => {
                         const a = key + 1;
                         const b = a > 5 ? a % 5 : a;
 
@@ -53,10 +53,12 @@ const Rooms = ({ rooms, showFooter }) => (
 Rooms.propTypes = {
     rooms: PropTypes.array.isRequired,
     showFooter: PropTypes.bool.isRequired,
+    loaderTotal: PropTypes.number.isRequired,
 };
 
 Rooms.defaultProps = {
     showFooter: true,
+    showFooter: 3,
 };
 
 export default Rooms;

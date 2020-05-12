@@ -56,17 +56,6 @@ export const MultiLineTextLoader = ({ lineTotal, lineHeight, height, width, alig
     const lastLineWidth = isNaN(width) ? '80%' : (width * 0.8);
     const lastLineX = isNaN(width) ? '10%' : (width * 0.1);
 
-    let x;
-
-    switch (align) {
-        case 'center':
-            x = (i + 1) < lineTotalArr.length ? 0 : lastLineX;
-            break;
-        case 'left':
-            x = 0;
-            break;
-    };
-
     return (
         <ContentLoader
             // height={height}
@@ -80,7 +69,7 @@ export const MultiLineTextLoader = ({ lineTotal, lineHeight, height, width, alig
         >
             {lineTotalArr.map((i) => (
                 <rect
-                    x={x}
+                    x={align === 'left' ? 0 : ((i + 1) < lineTotalArr.length ? 0 : lastLineX)}
                     y={i * (height + lineHeight)}
                     rx="4"
                     ry="4"

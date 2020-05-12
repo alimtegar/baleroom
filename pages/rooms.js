@@ -12,6 +12,9 @@ const MyRooms = () => {
     const [company, setCompany] = useState({
         logo: 0,
         title: '',
+        address: '',
+        phone: '',
+        email: '',
         social_medias: {},
     });
     const [navbarNav, setNavbarNav] = useState([]);
@@ -56,7 +59,7 @@ const MyRooms = () => {
             </div>
 
             <main id="main">
-                <Rooms rooms={rooms} showFooter={false} />
+                <Rooms rooms={rooms} showFooter={false} loaderTotal={5} />
             </main>
 
             <Footer email={company.email} nav={footerNav} socialMedias={company.social_medias} />

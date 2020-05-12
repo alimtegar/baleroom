@@ -13,6 +13,9 @@ const MyRoom = () => {
     const [company, setCompany] = useState({
         logo: 0,
         title: '',
+        address: '',
+        phone: '',
+        email: '',
         social_medias: {},
     });
     const [navbarNav, setNavbarNav] = useState([]);
@@ -69,13 +72,21 @@ const MyRoom = () => {
                             </h1>
                             <hr className="divider border-dark" />
                         </div>
-                        <div className="row m-min-2">
-                            {page.content ? (
-                                <div className="small text-muted text-justify mb-0" dangerouslySetInnerHTML={{ __html: page.content }} />
-                            ) : (
-                                <MultiLineTextLoader lineTotal={7} lineHeight={5.25} height={16} width="100%" align="left" />
-                            )}
-                        </div>
+                        {page.content ? (
+                            <div className="small text-muted text-justify mb-0" dangerouslySetInnerHTML={{ __html: page.content }} />
+                        ) : (
+                            <div>
+                                <div className="mb-3">
+                                    <MultiLineTextLoader lineTotal={7} lineHeight={5.25} height={16} width="100%" align="left" />
+                                </div>
+                                <div className="mb-3">
+                                    <MultiLineTextLoader lineTotal={5} lineHeight={5.25} height={16} width="100%" align="left" />
+                                </div>
+                                <div className="mb-3">
+                                    <MultiLineTextLoader lineTotal={4} lineHeight={5.25} height={16} width="100%" align="left" />
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </section>
             </main>

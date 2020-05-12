@@ -16,6 +16,9 @@ const Home = () => {
     const [company, setCompany] = useState({
         logo: 0,
         title: '',
+        address: '',
+        phone: '',
+        email: '',
         social_medias: {},
     });
     const [navbarNav, setNavbarNav] = useState([]);
@@ -68,7 +71,6 @@ const Home = () => {
             <Head />
 
             <div className="sticky-top">
-                {console.log('company', company)}
                 <SubNavbar address={company.address} email={company.email} phone={company.phone} />
                 <Navbar logo={company.logo} nav={navbarNav} />
             </div>
@@ -77,7 +79,7 @@ const Home = () => {
                 <Slider sliderImages={sliderImages} />
                 <AboutUs content={company.content} />
                 <Amenities amenities={amenities} />
-                <Rooms rooms={rooms} />
+                <Rooms rooms={rooms} loaderTotal={3} />
                 <Map className="pt-5" />
             </main>
 
