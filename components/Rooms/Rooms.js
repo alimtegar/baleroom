@@ -1,8 +1,12 @@
 import Link from '../Link';
 import PropTypes from 'prop-types';
 
+// Import Helpers
+import {range} from '../../helpers';
+
 // Import Components
 import RoomsItem from './RoomsItem';
+import RoomsItemLoader from './RoomsItemLoader';
 
 const Rooms = ({ rooms, showFooter }) => (
     <section id="rooms" className="text-center py-5">
@@ -15,7 +19,7 @@ const Rooms = ({ rooms, showFooter }) => (
         <div className="rooms-body text-white">
             <div className="container-fluid px-0 overflow-hidden">
                 <div className="row m-min-0-25">
-                    {rooms.map((room, key) => {
+                    {rooms.length ? rooms.map((room, key) => {
                         const a = key + 1;
                         const b = a > 5 ? a % 5 : a;
 
@@ -23,6 +27,14 @@ const Rooms = ({ rooms, showFooter }) => (
                         const fit = b > 3 ? 'width' : 'height';
 
                         return (<RoomsItem col={col} fit={fit} id={room.id} title={room.title} subTitle={room.title} uniqueUrlSlug={room.unique_url_slug} key={room.id} />);
+                    }) : range(0, 3).map((key) => {
+                        const a = key + 1;
+                        const b = a > 5 ? a % 5 : a;
+
+                        const col = b > 3 ? 6 : 4;
+                        const fit = b > 3 ? 'width' : 'height';
+
+                        return (<RoomsItemLoader col={col} key={key} />);
                     })}
                 </div>
             </div>

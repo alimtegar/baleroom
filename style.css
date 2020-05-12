@@ -342,6 +342,8 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 
 .btn-primary { background-color: #3fc3ff !important; border-color: #3fc3ff !important; }
 .btn-primary:hover { background-color: #35a3d6 !important; border-color: #35a3d6 !important; }
+.btn-outline-dark { border-color: #212529 !important; }
+.btn-outline-dark:hover { background-color: #212529 !important; }
 
 /* ------- Breadcrumb ------ */
 #breadcrumb {
@@ -599,6 +601,9 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover,
 #page ul li:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 }
+
+/* Others */
+/* #about-us svg rect { height: 100%; } */
 
 /* ------ Responsive ------ */
 @media only screen and (min-width: 1080px) {

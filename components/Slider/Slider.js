@@ -1,8 +1,10 @@
+import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 import Head from 'next/head';
 
 // Import Components
+import { BackgroundLoader } from '../Loaders';
 import SliderItem from './SliderItem';
 
 const MySlider = ({ sliderImages, className }) => {
@@ -25,9 +27,12 @@ const MySlider = ({ sliderImages, className }) => {
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
             </Head>
 
-            <Slider ref={(c) => slider = c} {...settings}>
-                {sliderImages.map((sliderImage) => (<SliderItem sliderImage={sliderImage} key={sliderImage.id} />))}
-            </Slider>
+            {sliderImages.length ? (
+                <Slider ref={(c) => slider = c} {...settings}>
+                    {sliderImages.map((sliderImage) => (<SliderItem sliderImage={sliderImage} key={sliderImage.id} />))}
+                </Slider>
+            ) : (<BackgroundLoader />)}
+
 
             {sliderImages.length ? (
                 <div className="slider-arrow position-absolute top-50 left-0 y-50 d-none d-lg-flex w-100 px-4">

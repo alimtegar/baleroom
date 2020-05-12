@@ -8,8 +8,6 @@ export const ButtonLoader = ({ height, width }) => {
             height={height}
             width={width}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
             style={{
                 marginTop: -1,
                 height: height
@@ -26,14 +24,14 @@ ButtonLoader.propTypes = {
 };
 
 // Text Loader
-export const TextLoader = ({ height, width }) => {
+export const TextLoader = ({ height, width, backgroundColor, foregroundColor }) => {
     return (
         <ContentLoader
             height={height}
             width={width}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
             style={{
                 marginTop: -1,
                 height: height,
@@ -48,28 +46,41 @@ export const TextLoader = ({ height, width }) => {
 TextLoader.propTypes = {
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
+    backgroundColor: PropTypes.string,
+    foregroundColor: PropTypes.string,
 };
 
 // Multi-Line Text Loader
-export const MultiLineTextLoader = ({ lineTotal, lineHeight, height, width }) => {
+export const MultiLineTextLoader = ({ lineTotal, lineHeight, height, width, align }) => {
     const lineTotalArr = [...Array(lineTotal).keys()];
     const lastLineWidth = isNaN(width) ? '80%' : (width * 0.8);
     const lastLineX = isNaN(width) ? '10%' : (width * 0.1);
 
+    let x;
+
+    switch (align) {
+        case 'center':
+            x = (i + 1) < lineTotalArr.length ? 0 : lastLineX;
+            break;
+        case 'left':
+            x = 0;
+            break;
+    };
+
     return (
-        <ContentLoader height={height}
+        <ContentLoader
+            // height={height}
             width={width}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
             style={{
                 marginTop: -1,
+                width: width,
                 height: (height + lineHeight) * lineTotal,
             }}
         >
             {lineTotalArr.map((i) => (
                 <rect
-                    x={(i + 1) < lineTotalArr.length ? 0 : lastLineX}
+                    x={x}
                     y={i * (height + lineHeight)}
                     rx="4"
                     ry="4"
@@ -87,17 +98,22 @@ MultiLineTextLoader.propTypes = {
     lineHeight: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     width: PropTypes.any.isRequired,
+    align: PropTypes.string,
+};
+
+MultiLineTextLoader.defaultTypes = {
+    align: 'center',
 };
 
 // Square Loader
-export const SquareLoader = ({ side }) => {
+export const SquareLoader = ({ side, backgroundColor, foregroundColor }) => {
     return (
         <ContentLoader
             height={side}
             width={side}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
+            backgroundColor={backgroundColor}
+            foregroundColor={foregroundColor}
             style={{
                 marginTop: -1,
                 height: side
@@ -110,6 +126,8 @@ export const SquareLoader = ({ side }) => {
 
 SquareLoader.propTypes = {
     side: PropTypes.number.isRequired,
+    backgroundColor: PropTypes.string,
+    foregroundColor: PropTypes.string,
 };
 
 // Rectangle Loader
@@ -119,8 +137,6 @@ export const RectangleLoader = ({ width, height }) => {
             height={height}
             width={width}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
             style={{
                 marginTop: -1,
                 height: height
@@ -146,8 +162,6 @@ export const BackgroundLoader = () => {
             height={height}
             width={width}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
             style={{
                 marginTop: -1,
                 height: height,
@@ -169,8 +183,6 @@ export const CircleLoader = ({ diameter }) => {
             height={diameter}
             width={diameter}
             speed={2}
-            primarycolor="#8b463d"
-            secondarycolor="#8e4b42"
             style={{
                 marginTop: -1,
                 height: diameter

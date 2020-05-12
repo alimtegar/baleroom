@@ -2,94 +2,85 @@ import { Fragment, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 /* Components */
+import { TextLoader, MultiLineTextLoader } from '../components/Loaders';
 import Head from '../components/Head';
-import Loader from '../components/Loader';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
 import Footer from '../components/Footer';
 
 const MyRoom = () => {
-    /* States */
-    const [company, setCompany] = useState({});
-    const [logo, setLogo] = useState({});
+    // Use State
+    const [company, setCompany] = useState({
+        logo: 0,
+        title: '',
+        social_medias: {},
+    });
     const [navbarNav, setNavbarNav] = useState([]);
     const [page, setPage] = useState({});
     const [footerNav, setFooterNav] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     const router = useRouter();
     const { uniqueUrlSlug } = router.query;
 
+    // Use Effect
     useEffect(() => {
         if (uniqueUrlSlug) {
-            Promise.all([
-                fetch(process.env.API_URL + 'items/profile'),
-                fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=top&sort=order'),
-                fetch(process.env.API_URL + 'items/pages?filter[status]=published&filter[unique_url_slug]=' + uniqueUrlSlug),
-                fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=bottom&sort=order'),
-            ])
-                .then(async ([res1, res2, res3, res4]) => {
-                    const data1 = await res1.json();
-                    const data2 = await res2.json();
-                    const data3 = await res3.json();
-                    const data4 = await res4.json();
+            // Fetch Profile
+            fetch(process.env.API_URL + 'items/profile')
+                .then((res) => res.json())
+                .then((data) => setCompany(data.data[0]))
+                .catch((err) => console.log(err));
 
-                    return [data1, data2, data3, data4];
-                })
-                .then(([data1, data2, data3, data4]) => {
-                    const _company = data1.data[0];
-                    const _page = data3.data[0];
+            // Fetch Menu (Top)
+            fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=top&sort=order')
+                .then((res) => res.json())
+                .then((data) => setNavbarNav(data.data))
+                .catch((err) => console.log(err));
 
-                    setCompany(_company);
-                    setNavbarNav(data2.data);
-                    setPage(_page);
-                    setFooterNav(data4.data);
+            // Fetch Page
+            fetch(process.env.API_URL + 'items/pages?filter[status]=published&filter[unique_url_slug]=' + uniqueUrlSlug)
+                .then((res) => res.json())
+                .then((data) => setPage(data.data[0]))
+                .catch((err) => console.log(err));
 
-                    // Fetch Logo
-                    fetch(process.env.API_URL + 'files/' + _company.logo)
-                        .then((res) => res.json())
-                        .then((logo) => {
-                            setLogo(logo);
-                            setIsLoading(false);
-                        })
-                        .catch((err) => console.log(err));
-                }).catch((err) => {
-                    console.log(err);
-                });
+            // Fetch Menu (Bottom)
+            fetch(process.env.API_URL + 'items/menu?filter[status]=published&filter[position]=bottom&sort=order')
+                .then((res) => res.json())
+                .then((data) => setFooterNav(data.data))
+                .catch((err) => console.log(err));
         }
     }, [uniqueUrlSlug]);
 
     return (
         <Fragment>
-            <Head />
+            <Head subTitle={page.title} />
 
-            {isLoading ? (<Loader />) : (
-                <Fragment>
-                    <Head subTitle={page.title} />
-                    <div className="sticky-top">
-                        <SubNavbar address={company.address} email={company.email} phone={company.phone} />
-                        <Navbar logo={logo} title={company.title} nav={navbarNav} />
+            <div className="sticky-top">
+                <SubNavbar address={company.address} email={company.email} phone={company.phone} />
+                <Navbar logo={company.logo} nav={navbarNav} />
+            </div>
+
+            <main id="main">
+                <section className="py-5">
+                    <div className="container">
+                        <div className="facilities-header text-center mb-5 px-3">
+                            <h1 className="h4 mb-3" style={{ height: 28, }}>
+                                {page.title ? page.title : ((<TextLoader height={29} width={145} />))}
+                            </h1>
+                            <hr className="divider border-dark" />
+                        </div>
+                        <div className="row m-min-2">
+                            {page.content ? (
+                                <div className="small text-muted text-justify mb-0" dangerouslySetInnerHTML={{ __html: page.content }} />
+                            ) : (
+                                <MultiLineTextLoader lineTotal={7} lineHeight={5.25} height={16} width="100%" align="left" />
+                            )}
+                        </div>
                     </div>
+                </section>
+            </main>
 
-                    <main id="main">
-                        <section className="py-5">
-                            <div className="container">
-                                <div className="facilities-header text-center mb-5 px-3">
-                                    <h1 className="h4 mb-3">
-                                        {page.title}
-                                    </h1>
-                                    <hr className="divider border-dark" />
-                                </div>
-                                <div className="row m-min-2">
-                                    <div className="small text-muted text-justify mb-0" dangerouslySetInnerHTML={{ __html: page.content }} />
-                                </div>
-                            </div>
-                        </section>
-                    </main>
-
-                    <Footer title={company.title} email={company.email} nav={footerNav} socialMedias={company.social_medias} pageUrlSlug={uniqueUrlSlug} />
-                </Fragment>
-            )}
+            <Footer email={company.email} nav={footerNav} socialMedias={company.social_medias} pageUrlSlug={uniqueUrlSlug} />
         </Fragment>
     );
 };

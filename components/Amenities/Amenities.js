@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
 import Link from '../Link';
 
-/* Components */
+/* Import Components */
 import AmenitiesItem from './AmenitiesItem';
+import AmenitiesItemLoader from './AmenitiesItemLoader';
+
+// Import Helpers
+import { range } from '../../helpers';
+
 
 const Amenities = ({ amenities }) => {
     return (
@@ -16,9 +21,13 @@ const Amenities = ({ amenities }) => {
                 </div>
                 <div className="container">
                     <div className="row m-min-2">
-                        {amenities.map((amenity) => (
+                        {amenities.length ? amenities.map((amenity) => (
                             <div className="col-lg-3" key={amenity.id}>
                                 <AmenitiesItem icon={amenity.icon} title={amenity.title} description="Amenity" />
+                            </div>
+                        )) : range(0, 4).map((key) => (
+                            <div className="col-lg-3" key={key}>
+                                <AmenitiesItemLoader />
                             </div>
                         ))}
                     </div>
