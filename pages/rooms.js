@@ -4,7 +4,7 @@ import { Fragment, useState, useEffect } from 'react';
 import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 import SubNavbar from '../components/SubNavbar';
-import Rooms from '../components/rooms/Rooms';
+import Rooms from '../components/Rooms/Rooms';
 import Footer from '../components/Footer';
 
 const MyRooms = () => {

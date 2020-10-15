@@ -47,7 +47,7 @@ const RoomsItem = ({ col, fit, id, title, subTitle, uniqueUrlSlug }) => {
                             <div className="divider border-white"></div>
 
                             <div className="item-subcontent">
-                                <Link href="/room/id" as={'/rooms/' + uniqueUrlSlug}>
+                                <Link href="/room/id" as={'/Rooms/' + uniqueUrlSlug}>
                                     <a className="btn btn-outline-light mt-4 shadow-sm">More Info</a>
                                 </Link>
                             </div>

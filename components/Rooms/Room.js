@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 /* Components */
 import { TextLoader, MultiLineTextLoader } from '../Loaders';
 import Slider from '../Slider';
-import AmenitiesItem from '../amenities/AmenitiesItem';
-import AmenitiesItemLoader from '../amenities/AmenitiesItemLoader';
+import AmenitiesItem from '../Amenities/AmenitiesItem';
+import AmenitiesItemLoader from '../Amenities/AmenitiesItemLoader';
 
 // Import Helpers
 import { range } from '../../helpers';
